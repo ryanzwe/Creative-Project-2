@@ -25,7 +25,6 @@ public class CharController : MonoBehaviour
     private GameObject cam;
 
     private static CharController instance;
-
     public static CharController Instance
     {
         get { return instance; }
@@ -39,6 +38,7 @@ public class CharController : MonoBehaviour
         cam = transform.GetChild(0).gameObject;
         camRot = cam.transform.localRotation;
         charRot = transform.localRotation;
+        ToggleCursour(true);
     }
 
     // Update is called once per frame
@@ -55,6 +55,7 @@ public class CharController : MonoBehaviour
         transform.Translate(new Vector3(horizontalMovement, 0, verticalMovement));
         if (Input.GetKeyDown(KeyCode.Escape))
             ToggleCursour(false);
+        
     }
 
     private void MouseLook()
