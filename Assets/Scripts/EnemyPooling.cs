@@ -51,7 +51,6 @@ public class EnemyPooling : MonoBehaviour
                 enemies[i].SetActive(true);
                 enemies[i].transform.position = pos;
                 enemies[i].transform.rotation = rot;
-                Debug.Log("See");
                 return enemies[i];
             }
         }

@@ -1,19 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
+    [Header("Weapon Stats")]
     public int Damage = 20;
     public float FireRate = 30f;
     public float KnockBack = 5f;
     public float Range = 20f;
     private float nextFire;
+    [Header("Particles")]
     public ParticleSystem MuzzleFlash;
     public ParticleSystem ImpactEffect;
+    [Header("Audio")]
     public AudioClip[] ShootingSounds;
     private AudioSource audio;
     private Camera mainC;
+    private int bulletsShot;
     private void Start()
     {
         mainC = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
@@ -27,6 +32,7 @@ public class GunController : MonoBehaviour
             nextFire = Time.time + (1 / FireRate);
             Fire();
             Audio();
+            CharController.ToggleCursour(true);
         }
     }
 
@@ -37,7 +43,7 @@ public class GunController : MonoBehaviour
         Debug.DrawRay(mainC.transform.position, mainC.transform.forward * Range, Color.red,1);
         if (Physics.Raycast(mainC.transform.position, mainC.transform.forward, out hit, Range))
         {
-            Debug.Log(hit.transform.name);
+            bulletsShot++;
             if (hit.transform.CompareTag("Enemy"))
             {
                 hit.transform.GetComponent<EnemyController>().Damage(Damage);
@@ -46,8 +52,11 @@ public class GunController : MonoBehaviour
             {
                 hit.rigidbody.AddForce(-hit.normal * KnockBack);
             }
+            GameObject temp = GameController.Instance.HitPSPooled[bulletsShot % GameController.Instance.ImpactPSPool].gameObject;
+            temp.transform.SetPositionAndRotation(hit.point,Quaternion.LookRotation(hit.normal));
+            temp.SetActive(true);
         }
-        CharController.ToggleCursour(true);
+       
     }
 
     private void Audio()
@@ -57,4 +66,6 @@ public class GunController : MonoBehaviour
         audio.Play();
 
     }
+
+  
 }
