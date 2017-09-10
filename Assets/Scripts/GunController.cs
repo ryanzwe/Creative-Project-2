@@ -7,16 +7,18 @@ public class GunController : MonoBehaviour
 {
     [Header("Weapon Stats")]
     public int Damage = 20;
+
+    public int ClipSize;
     public float FireRate = 30f;
     public float KnockBack = 5f;
     public float Range = 20f;
     private float nextFire;
     [Header("Particles")]
     public ParticleSystem MuzzleFlash;
-    public ParticleSystem ImpactEffect;
     [Header("Audio")]
     public AudioClip[] ShootingSounds;
     private AudioSource audio;
+
     private Camera mainC;
     private int bulletsShot;
     private void Start()
