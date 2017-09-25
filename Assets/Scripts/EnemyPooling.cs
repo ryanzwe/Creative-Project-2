@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyPooling : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class EnemyPooling : MonoBehaviour
     {
         get { return instance; }
     }
-    
+
     // Use this for initialization
     void Start()
     {
@@ -39,6 +40,7 @@ public class EnemyPooling : MonoBehaviour
             enemies[i] = gb;
             Create(SpawnPositions[i], Quaternion.identity);
         }
+        GetComponent<EnemyAI>().enabled = true;
     }
 
     public GameObject Create(Vector3 pos, Quaternion rot)
@@ -48,9 +50,11 @@ public class EnemyPooling : MonoBehaviour
             if (!enemies[i].activeSelf)
             {
                 ZombiesCreated++;
+                enemies[i].GetComponent<NavMeshAgent>().enabled = true;
                 enemies[i].SetActive(true);
                 enemies[i].transform.position = pos;
                 enemies[i].transform.rotation = rot;
+                enemies[i].GetComponent<EnemyController>().health = 100;
                 return enemies[i];
             }
         }
@@ -59,7 +63,7 @@ public class EnemyPooling : MonoBehaviour
 
     public void Deactivate(GameObject gb)
     {
-      gb.SetActive(false);
+        gb.SetActive(false);
     }
 
 

@@ -15,6 +15,9 @@ public class GameController : MonoBehaviour
     {
         get { return instance; }
     }
+    [Header("Logs")]
+    public GameObject Log;
+    public int CurrentLogCount = 0;
     void Start()
     {// Setting the instance and the parent to hold the pooled objects
         instance = this;

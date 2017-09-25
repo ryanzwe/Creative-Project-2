@@ -1,17 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-    private int health = 20;
+    public int health = 100;
 
     public void Damage(int damage)
     {
         health -= damage;
         if (health <= 0)
         {
+            GetComponent<NavMeshAgent>().enabled = false;
+            if (Random.value < 0.1f)
+            {
+                GameObject gb = Instantiate(GameController.Instance.Log,transform.position,Quaternion.Euler(new Vector3(90f,0f,0f)));
+                gb.GetComponent<Rigidbody>().AddForce(Vector3.up * 15f);
+
+            }
             EnemyPooling.Instance.Deactivate(this.gameObject);
+
         }
     }
 }

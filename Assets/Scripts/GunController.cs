@@ -20,6 +20,8 @@ public class GunController : MonoBehaviour
     public ParticleSystem MuzzleFlash;
     [Header("Audio")]
     public AudioClip[] ShootingSounds;
+
+    public AudioClip ReloadSound;
     public AudioSource audio;
 
     private Camera mainC;
@@ -39,7 +41,7 @@ public class GunController : MonoBehaviour
     private void Update()
     {// If reloading, do nothing, if out of ammo, reload and exit loop
         if (reloading) return;
-        if (clip <= 0)
+        if (clip <= 0 || Input.GetKeyDown(KeyCode.R))
         {
             StartCoroutine(Reload());
             return;
@@ -90,6 +92,7 @@ public class GunController : MonoBehaviour
     {// Starting reload
         reloading = true;
         anim.SetBool("Reloading",reloading);
+        audio.PlayOneShot(ReloadSound);
         yield return new WaitForSeconds(ReloadSpeed- 0.25f);// The nimator has a .25f transition delay
         // ending reload, animator needs to finish first to prevent player from shooting early
         anim.SetBool("Reloading", false);

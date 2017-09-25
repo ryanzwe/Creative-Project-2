@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngineInternal.Input;
 
 public class CharController : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class CharController : MonoBehaviour
     // Extra
     private bool cursLocked = false;
     private GameObject cam;
+    public float PickupDistance = 5f;
 
     private static CharController instance;
     public static CharController Instance
@@ -46,6 +48,7 @@ public class CharController : MonoBehaviour
     {
         Movement();
         MouseLook();
+        Inputs();
     }
 
     private void Movement()
@@ -53,11 +56,32 @@ public class CharController : MonoBehaviour
         verticalMovement = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
         horizontalMovement = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
         transform.Translate(new Vector3(horizontalMovement, 0, verticalMovement));
-        if (Input.GetKeyDown(KeyCode.Escape))
-            ToggleCursour(false);
+       
         
     }
 
+    private void Inputs()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            ToggleCursour(false);
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            RaycastHit hit;// Draw a ray forwards 
+            Debug.DrawRay(cam.transform.position, cam.transform.forward * PickupDistance, Color.red, 1);
+            if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, PickupDistance))
+            {
+                if (hit.collider.CompareTag("Log"))
+                {// Make the log fly towards the player 
+                    Vector3 dir = new Vector3(transform.position.x -hit.transform.position.x, transform.position.y -  hit.transform.position.y + 2f, transform.position.z - hit.transform.position.z);
+                    Physics.IgnoreCollision(hit.collider,GetComponent<Collider>());// Disable collision so it doesn't push the player 
+                    hit.collider.GetComponent<Rigidbody>().AddForce(dir*2f,ForceMode.Impulse);// Adding the force towards the player 
+                    Destroy(hit.collider.gameObject,1f);// destroying the log after as econd 
+                    GameController.Instance.CurrentLogCount++;// adding one to the playes log count, for game completion
+                    SoundHandler.Instance.PlaySound(SoundHandler.Sounds.Pickup_Extra);// as this is an extra item, play this sound 
+                }
+            }
+        }
+    }
     private void MouseLook()
     {
         rotX = Input.GetAxis("Mouse X");

@@ -66,7 +66,7 @@ public class FindTarget : State<EnemyAI>
         {
             foreach (NavMeshAgent nav in navAgent)
             {
-                if (nav.destination != foundTarget.transform.position) nav.destination = foundTarget.transform.position;
+                if (nav.destination != foundTarget.transform.position && nav.enabled) nav.destination = foundTarget.transform.position;
             }
         }
     }
