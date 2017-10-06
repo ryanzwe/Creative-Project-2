@@ -25,6 +25,7 @@ public class EnemyAI : MonoBehaviour
         // Creating a new Statemachine for the Ai to use, the type is an AISate, and the Owner is this instance
         stateMachine = new StateMachine<EnemyAI>(this);
         stateMachine.ChangeState(new FindTarget(this.gameObject,TargetRange,"Player",this.agents));
+        new EnemyAttack(this.gameObject, this.agents); // Creating the instance
         //stateMachine.ChangeState(FirstState.Instance);
         Debug.Log("Owner: " + stateMachine.Owner + "State: " + stateMachine.CurrentState);
     }

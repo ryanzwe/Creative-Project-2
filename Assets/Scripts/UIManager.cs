@@ -10,7 +10,7 @@ public class UIManager
     public Text ClipCount;
 
     [Header("Player")]
-    public Text Health;
+    public Slider Health;
 
     public Text Score;
 

@@ -67,6 +67,13 @@ public class FindTarget : State<EnemyAI>
             foreach (NavMeshAgent nav in navAgent)
             {
                 if (nav.destination != foundTarget.transform.position && nav.enabled) nav.destination = foundTarget.transform.position;
+                float dist = (foundTarget.transform.position - nav.transform.position).magnitude;
+                if (dist < EnemyAttack.Instance.attackRange)
+                {
+                    EnemyAttack.Instance.target = foundTarget;
+                    nav.isStopped = true;
+                    Owner.stateMachine.ChangeState(EnemyAttack.Instance);
+                }
             }
         }
     }

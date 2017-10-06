@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour
     public GameObject Log;
     public int CurrentLogCount = 0;
     public UIManager ui;
-    void Start()
+    void Awake()
     {// Setting the instance and the parent to hold the pooled objects
         instance = this;
         GameObject ImpactPsHolder = new GameObject("ImpactPsHolder");
