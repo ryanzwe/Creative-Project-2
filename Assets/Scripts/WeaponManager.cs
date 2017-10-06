@@ -5,10 +5,11 @@ using UnityEngine;
 public class WeaponManager : MonoBehaviour
 {
     public int wepIndex;
-
+    private Animator anim;
     private void Start()
     {
     EquipWeapon();
+        anim = GetComponent<Animator>();
     }
     private void Update()
     {
@@ -59,5 +60,9 @@ public class WeaponManager : MonoBehaviour
         // If the wep index changes at the end of the frame, then reselect a wep
         if (wepIndex != prevIndex)
             EquipWeapon();
+    }
+    public void AnimationEventShootfalse()
+    {
+        anim.SetBool("Shooting", false);
     }
 }

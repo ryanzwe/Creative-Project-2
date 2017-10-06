@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 4dcb737b4858cd44cbfcfffd275a9af3
-timeCreated: 1506353108
+timeCreated: 1507279283
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -10,6 +10,13 @@ TextureImporter:
     21300006: Arrow
     21300008: Back
     21300010: chestOpen
+    21300012: Health
+    21300014: back
+    21300016: coin
+    21300018: SliderDesign
+    21300020: SliderFill
+    21300022: UIss_2
+    21300024: Coin
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -105,53 +112,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Select
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 949
-        width: 394
-        height: 66
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Coins
-      rect:
-        serializedVersion: 2
-        x: 420
-        y: 858
-        width: 98
-        height: 102
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: chestClosed
-      rect:
-        serializedVersion: 2
-        x: 540
-        y: 810
-        width: 241
-        height: 214
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
       name: Arrow
       rect:
         serializedVersion: 2
-        x: 21
-        y: 888
+        x: 3
+        y: 976
         width: 192
         height: 42
       alignment: 0
@@ -161,12 +126,26 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Back
+      name: SliderFill
       rect:
         serializedVersion: 2
-        x: 302
-        y: 842
-        width: 95
+        x: 200
+        y: 928
+        width: 455
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: UIss_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 874
+        width: 90
         height: 95
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -175,13 +154,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: chestOpen
+      name: Coin
       rect:
         serializedVersion: 2
-        x: 783
-        y: 810
-        width: 241
-        height: 214
+        x: 97
+        y: 867
+        width: 98
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SliderDesign
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 860
+        width: 455
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Health
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 775
+        width: 89
+        height: 89
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

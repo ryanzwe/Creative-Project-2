@@ -19,12 +19,14 @@ public class CharController : MonoBehaviour
     private float mouseSensitivity = 5.0f;
 
     //Forces 
-    private float moveSpeed = 5.0f;
+    private Rigidbody rb;
+    private float moveSpeed = 2.0f;
     private float jumpSpeed = 2f;
     // Extra
     private bool cursLocked = false;
     private GameObject cam;
     public float PickupDistance = 5f;
+    public Animator weaponHandlerAnim;
 
     private static CharController instance;
     public static CharController Instance
@@ -36,6 +38,7 @@ public class CharController : MonoBehaviour
 
     private void Start()
     {
+        rb = GetComponent<Rigidbody>();
         instance = this;
         cam = transform.GetChild(0).gameObject;
         camRot = cam.transform.localRotation;
@@ -46,17 +49,22 @@ public class CharController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        Movement();
         MouseLook();
         Inputs();
     }
+    private void FixedUpdate()
+    {
+        Movement();
 
+    }
+    
     private void Movement()
     {
+        Vector3 prePos = transform.position;
         verticalMovement = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
         horizontalMovement = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
         transform.Translate(new Vector3(horizontalMovement, 0, verticalMovement));
-       
+        if (transform.position != prePos) weaponHandlerAnim.SetBool("Walking", true); else weaponHandlerAnim.SetBool("Walking", false);
         
     }
 
