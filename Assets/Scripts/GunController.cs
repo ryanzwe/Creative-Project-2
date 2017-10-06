@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class GunController : MonoBehaviour
@@ -13,7 +12,8 @@ public class GunController : MonoBehaviour
     public float ReloadSpeed = 2f;
     //Reloading & ammo
     public int ClipSize;
-    public int clip;
+    public int ClipAmount = 3;
+    private int currentClip;
     private bool reloading = false;
     private float nextFire;
     [Header("Particles")]
@@ -29,19 +29,18 @@ public class GunController : MonoBehaviour
     private int bulletsShot;
     private void Start()
     {
-        clip = ClipSize;
+        currentClip = ClipSize;
         mainC = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
     void OnEnable()
     {
         audio.Stop();
         reloading = false;
-        anim.SetBool("Reloading", false);
     }
     private void Update()
     {// If reloading, do nothing, if out of ammo, reload and exit loop
         if (reloading) return;
-        if (clip <= 0 || Input.GetKeyDown(KeyCode.R))
+        if (currentClip <= 0 && ClipAmount > 0 || Input.GetKeyDown(KeyCode.R) && ClipAmount > 0)
         {
             StartCoroutine(Reload());
             return;
@@ -52,14 +51,15 @@ public class GunController : MonoBehaviour
             Fire();// Starting shooting 
             Audio();// Play gun audio 
             CharController.ToggleCursour(true);
+            //StartCoroutine(AnimationFlick("Shooting", 0.001f));
+            anim.SetTrigger("Shooting");
         }
     }
 
     private void Fire()
     {
-        clip--;
+        currentClip--;
         MuzzleFlash.Play();
-
         RaycastHit hit;
         Debug.DrawRay(mainC.transform.position, mainC.transform.forward * Range, Color.red,1);
         if (Physics.Raycast(mainC.transform.position, mainC.transform.forward, out hit, Range))
@@ -76,8 +76,8 @@ public class GunController : MonoBehaviour
             GameObject temp = GameController.Instance.HitPSPooled[bulletsShot % GameController.Instance.ImpactPSPool].gameObject;
             temp.transform.SetPositionAndRotation(hit.point,Quaternion.LookRotation(hit.normal));
             temp.SetActive(true);
+            
         }
-       
     }
 
     private void Audio()
@@ -91,13 +91,19 @@ public class GunController : MonoBehaviour
     private IEnumerator Reload()
     {// Starting reload
         reloading = true;
-        anim.SetBool("Reloading",reloading);
+        ClipAmount--;
+        anim.SetTrigger("Reloading");
         audio.PlayOneShot(ReloadSound);
-        yield return new WaitForSeconds(ReloadSpeed- 0.25f);// The nimator has a .25f transition delay
-        // ending reload, animator needs to finish first to prevent player from shooting early
-        anim.SetBool("Reloading", false);
-        yield return new WaitForSeconds(0.25f);// adding this to prevent the player shooting during transition
+        yield return new WaitForSeconds(ReloadSpeed - 0.25f);// The reload anim has a .25f transition delay, alows player to shoot when anim just finishes, instead of waiting
         reloading = false;
-        clip = ClipSize;
+        currentClip = ClipSize;
     }
+    private IEnumerator AnimationFlick(string Parameter, float delay,bool NotReverse = true)
+    {
+        anim.SetBool(Parameter, NotReverse);
+        yield return new WaitForSeconds(delay);
+        anim.SetBool(Parameter, !NotReverse);
+
+    }
+   
 }

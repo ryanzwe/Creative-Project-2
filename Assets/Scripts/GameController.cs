@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
-using NUnit.Framework.Constraints;
 using UnityEngine;
 
 
 public class GameController : MonoBehaviour
 {
+    [Header("Gun Particles")]
     public int ImpactPSPool = 100;
     public GameObject HitPS;
     public GameObject[] HitPSPooled;
@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
     [Header("Logs")]
     public GameObject Log;
     public int CurrentLogCount = 0;
+    public UIManager ui;
     void Start()
     {// Setting the instance and the parent to hold the pooled objects
         instance = this;
