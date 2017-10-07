@@ -41,6 +41,7 @@ public class GunController : MonoBehaviour
     [Header("Audio")]
     public AudioClip[] ShootingSounds;
     public AudioClip ReloadSound;
+    public AudioClip DrySound;
     public AudioSource audio;
     //Extra
     private Camera mainC;
@@ -64,7 +65,7 @@ public class GunController : MonoBehaviour
     {// If reloading, do nothing, if out of ammo, reload and exit loop
         if (reloading) return;
         if (CurrentClip <= 0 && clipAmount > 0 || Input.GetKeyDown(KeyCode.R) && ClipAmount > 0)
-        {
+        {// If the player has no ammo, and clips remaining then reload 
             StartCoroutine(Reload());
             return;
         }
@@ -76,7 +77,9 @@ public class GunController : MonoBehaviour
             CharController.ToggleCursour(true);
             //StartCoroutine(AnimationFlick("Shooting", 0.001f));
             anim.SetTrigger("Shooting");
-        }
+            return;
+        }// If the gun has no ammo left in the clip, no clips remaining, and can't reload then play the dry sound 
+        audio.PlayOneShot(DrySound);
     }
 
     private void Fire()
@@ -94,9 +97,18 @@ public class GunController : MonoBehaviour
             }
             if (hit.rigidbody != null)
             {
-                hit.rigidbody.AddForce(-hit.normal * KnockBack);
+               // hit.rigidbody.AddForce(-hit.normal * KnockBack);
             }
+            // spawning a particle system where it hits 
             GameObject temp = GameController.Instance.HitPSPooled[bulletsShot % GameController.Instance.ImpactPSPool].gameObject;
+            if (hit.transform.GetComponent<Renderer>() != null)
+            {
+                temp.GetComponent<Renderer>().material = hit.transform.GetComponent<Renderer>().material;
+                if (hit.transform.CompareTag("Enemy"))
+                { // If shooting the enemy, make the material red so it looks like blood 
+                    temp.GetComponent<Renderer>().material.color = new Color(1f,0f,0f);
+                }// If not change the material to what it's shooting, to make it look better 
+            }
             temp.transform.SetPositionAndRotation(hit.point, Quaternion.LookRotation(hit.normal));
             temp.SetActive(true);
 
@@ -120,6 +132,8 @@ public class GunController : MonoBehaviour
         yield return new WaitForSeconds(ReloadSpeed - 0.25f);// The reload anim has a .25f transition delay, alows player to shoot when anim just finishes, instead of waiting
         reloading = false;
         CurrentClip = ClipSize;
+        if (clipAmount == 0)
+            CurrentClip = 0;
     }
     private IEnumerator AnimationFlick(string Parameter, float delay, bool NotReverse = true)
     {
