@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Timers;
 using Enemy;
 using UnityEngine;
 using UnityEngine.AI;
@@ -14,6 +13,8 @@ class EnemyAttack : State<EnemyAI>
     public GameObject target;
     private NavMeshAgent[] navAgent;
     public float attackRange = 5.5f;
+    public float AttackDamage = 20f;
+    public int AttackSpeedInMS = 1300;
     private bool preparingAttack;
     private System.Timers.Timer attackTimer;
 
@@ -76,7 +77,7 @@ class EnemyAttack : State<EnemyAI>
     private void TimerSetup()
     {
         attackTimer = new System.Timers.Timer();
-        attackTimer.Interval = 3000;
+        attackTimer.Interval = AttackSpeedInMS;
         attackTimer.AutoReset = false;
         attackTimer.Elapsed += Attack;
     }
@@ -86,6 +87,7 @@ class EnemyAttack : State<EnemyAI>
     private void Attack(Object obj, EventArgs e)
     {
         Debug.Log("Hit!");
-    }
+        PlayerController.Instance.Health -= AttackDamage;
+    }   
 }
 

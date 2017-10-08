@@ -6,19 +6,26 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    [Header("Gun Particles")]
-    public int ImpactPSPool = 100;
-    public GameObject HitPS;
-    public GameObject[] HitPSPooled;
     private static GameController instance;
     public static GameController Instance
     {
         get { return instance; }
     }
+    [Header("Gun Particles")]
+    public int ImpactPSPool = 100;
+    public GameObject HitPS;
+    public GameObject[] HitPSPooled;
     [Header("Logs")]
     public GameObject Log;
     public int CurrentLogCount = 0;
+    [Header("Extra")]
     public UIManager ui;
+    [Header("Timers")]
+    public float GameTime;
+
+    public delegate void SecondEvent();
+
+    public event SecondEvent OnSecondChange;
     void Awake()
     {// Setting the instance and the parent to hold the pooled objects
         instance = this;
@@ -34,11 +41,16 @@ public class GameController : MonoBehaviour
             HitPSPooled[i] = ps;
             ps.SetActive(false);
         }
+        GameTime = 0;
     }
 
     private void Update()
     {
-
+        if (Time.time > GameTime + 1)
+        {
+            GameTime = Time.time;
+            OnSecondChange();
+        }
     }
 }
 

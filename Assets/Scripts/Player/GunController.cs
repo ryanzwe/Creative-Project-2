@@ -64,22 +64,23 @@ public class GunController : MonoBehaviour
     private void Update()
     {// If reloading, do nothing, if out of ammo, reload and exit loop
         if (reloading) return;
-        if (CurrentClip <= 0 && clipAmount > 0 || Input.GetKeyDown(KeyCode.R) && ClipAmount > 0)
+        if (currentClip <= 0 && clipAmount > 0 || Input.GetKeyDown(KeyCode.R) && clipAmount > 0)
         {// If the player has no ammo, and clips remaining then reload 
             StartCoroutine(Reload());
             return;
-        }
-        if (Input.GetMouseButton(0) && nextFire < Time.time && clipAmount > 0)
-        {
+        }                                                      // >= so we can shoot when no spare clips left
+        if (Input.GetButton("Fire1") && nextFire < Time.time && clipAmount >= 0 && currentClip > 0)
+        {// If the player DOES have ammo, and is clicking while above the fire rate then shoot 
             nextFire = Time.time + (1 / FireRate); // Allowing the player to shoot at the desired bullets per second
             Fire();// Starting shooting 
             Audio();// Play gun audio 
             CharController.ToggleCursour(true);
             //StartCoroutine(AnimationFlick("Shooting", 0.001f));
             anim.SetTrigger("Shooting");
-            return;
-        }// If the gun has no ammo left in the clip, no clips remaining, and can't reload then play the dry sound 
-        audio.PlayOneShot(DrySound);
+        }
+        else if(Input.GetButton("Fire1") && clipAmount == 0 && currentClip == 0)
+             audio.PlayOneShot(DrySound);
+        // If the gun has no ammo left in the clip, no clips remaining, and can't reload then play the dry sound 
     }
 
     private void Fire()
@@ -126,14 +127,14 @@ public class GunController : MonoBehaviour
     private IEnumerator Reload()
     {// Starting reload
         reloading = true;
-        ClipAmount--;
+        //if(clipAmount >0)
+            ClipAmount--;
         anim.SetTrigger("Reloading");
         audio.PlayOneShot(ReloadSound);
         yield return new WaitForSeconds(ReloadSpeed - 0.25f);// The reload anim has a .25f transition delay, alows player to shoot when anim just finishes, instead of waiting
         reloading = false;
         CurrentClip = ClipSize;
-        if (clipAmount == 0)
-            CurrentClip = 0;
+
     }
     private IEnumerator AnimationFlick(string Parameter, float delay, bool NotReverse = true)
     {
