@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngineInternal.Input;
-
+/// <summary>
+///  Contains Movement, Rotating, Sprinting, CurrentGun assigned from WeaponManager.cs, and management of the cursour
+/// </summary>
 public class CharController : MonoBehaviour
 {
+    
     // Player Movement
     private float verticalMovement;
     private float horizontalMovement;
@@ -29,15 +32,18 @@ public class CharController : MonoBehaviour
     private GameObject cam;
     public float PickupDistance = 5f;
     public Animator weaponHandlerAnim;
+    // Shooting control
+    private GunController cur;
+
+    private bool canShoot;
 
     private static CharController instance;
     public static CharController Instance
     {
         get { return instance; }
-        private set {}
     }
 
-
+    
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -57,21 +63,33 @@ public class CharController : MonoBehaviour
     private void FixedUpdate()
     {
         Movement();
-
     }
-    
+
+
     private void Movement()
-    {
+    {// If sprintine make the modifier 2, else 1 
         if (Input.GetKey(KeyCode.LeftShift)) sprinting = true;
         else sprinting = false;
         float sprintModifier = sprinting ? 2 : 1;
-
+        // Getting the position the frame prior to moving
         Vector3 prePos = transform.position;
         verticalMovement = Input.GetAxis("Vertical") * moveSpeed * sprintModifier * Time.deltaTime;
         horizontalMovement = Input.GetAxis("Horizontal") * moveSpeed * sprintModifier * Time.deltaTime;
         transform.Translate(new Vector3(horizontalMovement, 0, verticalMovement));
-        if (transform.position != prePos && sprinting) weaponHandlerAnim.SetBool("Walking", true); else weaponHandlerAnim.SetBool("Walking", false);
-        // bug: rename from walking to sprinting in animator, make so cant shoot while sprinting in guncontroller
+
+        // IF the character isn't at the same spot as the last frame, and is sprinting then play the anim
+        if (transform.position != prePos && sprinting)
+        {
+            weaponHandlerAnim.SetBool("Sprinting", true);
+            // Disable the gun so the player can't shoot
+            cur.enabled = false;
+        }
+        else
+        {
+            weaponHandlerAnim.SetBool("Sprinting", false);
+            // Enable the gun so the player can shoot
+            cur.enabled = true;
+        }
     }
 
     private void Inputs()
@@ -86,10 +104,10 @@ public class CharController : MonoBehaviour
             {
                 if (hit.collider.CompareTag("Log"))
                 {// Make the log fly towards the player 
-                    Vector3 dir = new Vector3(transform.position.x -hit.transform.position.x, transform.position.y -  hit.transform.position.y + 2f, transform.position.z - hit.transform.position.z);
-                    Physics.IgnoreCollision(hit.collider,GetComponent<Collider>());// Disable collision so it doesn't push the player 
-                    hit.collider.GetComponent<Rigidbody>().AddForce(dir*2f,ForceMode.Impulse);// Adding the force towards the player 
-                    Destroy(hit.collider.gameObject,1f);// destroying the log after as econd 
+                    Vector3 dir = new Vector3(transform.position.x - hit.transform.position.x, transform.position.y - hit.transform.position.y + 2f, transform.position.z - hit.transform.position.z);
+                    Physics.IgnoreCollision(hit.collider, GetComponent<Collider>());// Disable collision so it doesn't push the player 
+                    hit.collider.GetComponent<Rigidbody>().AddForce(dir * 2f, ForceMode.Impulse);// Adding the force towards the player 
+                    Destroy(hit.collider.gameObject, 1f);// destroying the log after as econd 
                     GameController.Instance.CurrentLogCount++;// adding one to the playes log count, for game completion
                     SoundHandler.Instance.PlaySound(SoundHandler.Sounds.Pickup_Extra);// as this is an extra item, play this sound 
                 }
@@ -144,5 +162,10 @@ public class CharController : MonoBehaviour
         }
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+    }
+
+    public void UpdateCurrentWeapon(GunController cur)
+    {
+        this.cur = cur;
     }
 }

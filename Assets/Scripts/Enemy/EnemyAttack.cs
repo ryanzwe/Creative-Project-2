@@ -1,5 +1,6 @@
 ﻿using System;
 using Enemy;
+using NUnit.Framework.Constraints;
 using UnityEngine;
 using UnityEngine.AI;
 using Debug = UnityEngine.Debug;
@@ -16,7 +17,8 @@ class EnemyAttack : State<EnemyAI>
     public float AttackDamage = 20f;
     public int AttackSpeedInMS = 1300;
     private bool preparingAttack;
-    private System.Timers.Timer attackTimer;
+    private System.Timers.Timer[] attackTimer;
+    
 
     public EnemyAttack(GameObject ownerGB, NavMeshAgent[] navAgent)// When constructing this state, set the instance to this if there has already been one created
     {
@@ -24,6 +26,7 @@ class EnemyAttack : State<EnemyAI>
         this.ownerGB = ownerGB;
         this.navAgent = navAgent;
         instance = this;
+        TimerSetup();
     }
 
     public static EnemyAttack Instance
@@ -41,7 +44,7 @@ class EnemyAttack : State<EnemyAI>
     public override void EnterState(EnemyAI Owner)
     {
         Debug.Log("Entering EnemyAttack");
-        TimerSetup();
+        
     }
 
     public override void ExitState(EnemyAI Owner)
@@ -51,22 +54,37 @@ class EnemyAttack : State<EnemyAI>
 
     public override void UpdateState(EnemyAI Owner)
     {
-        foreach (NavMeshAgent agent in navAgent)
+        for (int i = 0; i < navAgent.Length; i++)
         {
-            float dist = (target.transform.position - agent.transform.position ).magnitude;
+            float dist = (target.transform.position - navAgent[i].transform.position).magnitude;
             if (dist < attackRange)
             {
-                preparingAttack = true;
-                attackTimer.Start();
+                attackTimer[i].Start();
             }
-            if (preparingAttack && dist > attackRange)
+            if (dist > attackRange)
             {
                 preparingAttack = false;
-                attackTimer.Stop();
-                agent.isStopped = false;
+                attackTimer[i].Stop();
+                navAgent[i].isStopped = false;
                 Owner.stateMachine.ChangeState(FindTarget.Instance);
             }
         }
+        //foreach (NavMeshAgent agent in navAgent)
+        //{
+        //    float dist = (target.transform.position - agent.transform.position ).magnitude;
+        //    if (dist < attackRange)
+        //    {
+        //        preparingAttack = true;
+        //        attackTimer.Start();
+        //    }
+        //    if (preparingAttack && dist > attackRange)
+        //    {
+        //        preparingAttack = false;
+        //        attackTimer.Stop();
+        //        agent.isStopped = false;
+        //        Owner.stateMachine.ChangeState(FindTarget.Instance);
+        //    }
+        //}
     }
 
     public override void DebugState(EnemyAI Owner)
@@ -76,10 +94,15 @@ class EnemyAttack : State<EnemyAI>
 
     private void TimerSetup()
     {
-        attackTimer = new System.Timers.Timer();
-        attackTimer.Interval = AttackSpeedInMS;
-        attackTimer.AutoReset = false;
-        attackTimer.Elapsed += Attack;
+        attackTimer = new System.Timers.Timer[navAgent.Length];
+        Debug.Log(attackTimer.Length);
+        for (int i = 0; i < attackTimer.Length; i++)
+        {
+            attackTimer[i].Interval = AttackSpeedInMS;
+            attackTimer[i].AutoReset = false;
+            attackTimer[i].Elapsed += Attack;
+            
+        }
     }
 
 

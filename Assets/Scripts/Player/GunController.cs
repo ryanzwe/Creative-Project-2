@@ -48,6 +48,7 @@ public class GunController : MonoBehaviour
     public Animator anim;
     private int bulletsShot;
     private bool initialized = false;
+    public CharController Char;
     private void Start()
     {
         initialized = true;
@@ -60,6 +61,7 @@ public class GunController : MonoBehaviour
         reloading = false;
         if (initialized)
             CurrentClip = currentClip; // Used to trigger the properties set function and update UI
+        Char.UpdateCurrentWeapon(this);// tell the charcontroller that this is the new gun, to update for sprinting
     }
     private void Update()
     {// If reloading, do nothing, if out of ammo, reload and exit loop

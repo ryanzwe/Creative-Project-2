@@ -1,14 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Remoting.Messaging;
 using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
     public int wepIndex;
     private Animator anim;
+    private static WeaponManager instance;
+
+    public static WeaponManager Instance
+    {
+        get { return instance; }
+    }
     private void Start()
     {
-    EquipWeapon();
+        instance = this;
+        EquipWeapon();
         anim = GetComponent<Animator>();
     }
     private void Update()
@@ -30,7 +38,7 @@ public class WeaponManager : MonoBehaviour
     {
         int prevIndex = wepIndex;
 
-        if (Input.GetAxis("Mouse ScrollWheel") >  0f)
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
         {     // If scrolling outside the array then loop back to the start              
             if (wepIndex >= transform.childCount - 1)
                 wepIndex = 0;
