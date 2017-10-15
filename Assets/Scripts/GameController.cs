@@ -49,7 +49,7 @@ public class GameController : MonoBehaviour
         if (Time.time > GameTime + 1)
         {
             GameTime = Time.time;
-            OnSecondChange();
+            if (OnSecondChange != null) OnSecondChange();
         }
     }
 }

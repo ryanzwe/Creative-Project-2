@@ -12,20 +12,24 @@ public class EnemyAI : MonoBehaviour
     public int seconds = 0;
     public StateMachine<EnemyAI> stateMachine { get; set; }
     private NavMeshAgent[] agents;
+    private EnemyAttackTimer[] enemyTimers;
 
     public float TargetRange;
 
     private void Start()
     {
-        agents = new NavMeshAgent[transform.childCount];
-        for (int i = 0; i < agents.Length; i++)
+        int childCt = transform.childCount;
+        agents = new NavMeshAgent[childCt];
+        enemyTimers = new EnemyAttackTimer[childCt];
+        for (int i = 0; i < childCt; i++)
         {
             agents[i] = transform.GetChild(i).GetComponent<NavMeshAgent>();
+            enemyTimers[i] = transform.GetChild(i).GetComponent<EnemyAttackTimer>();
         }
         // Creating a new Statemachine for the Ai to use, the type is an AISate, and the Owner is this instance
         stateMachine = new StateMachine<EnemyAI>(this);
         stateMachine.ChangeState(new FindTarget(this.gameObject,TargetRange,"Player",this.agents));
-        new EnemyAttack(this.gameObject, this.agents); // Creating the instance
+        new EnemyAttack(this.gameObject, this.agents,this.enemyTimers); // Creating the instance
         //stateMachine.ChangeState(FirstState.Instance);
         Debug.Log("Owner: " + stateMachine.Owner + "State: " + stateMachine.CurrentState);
     }
