@@ -78,7 +78,7 @@ public class GunController : MonoBehaviour
             //StartCoroutine(AnimationFlick("Shooting", 0.001f));
             anim.SetTrigger("Shooting");
         }
-        else if(Input.GetButton("Fire1") && clipAmount == 0 && currentClip == 0)
+        else if(Input.GetButtonDown("Fire1") && clipAmount == 0 && currentClip == 0)
              audio.PlayOneShot(DrySound);
         // If the gun has no ammo left in the clip, no clips remaining, and can't reload then play the dry sound 
     }

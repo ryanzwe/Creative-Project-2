@@ -22,6 +22,8 @@ public class CharController : MonoBehaviour
     private Rigidbody rb;
     private float moveSpeed = 2.0f;
     private float jumpSpeed = 2f;
+
+    private bool sprinting = false;
     // Extra
     private bool cursLocked = false;
     private GameObject cam;
@@ -60,12 +62,16 @@ public class CharController : MonoBehaviour
     
     private void Movement()
     {
+        if (Input.GetKey(KeyCode.LeftShift)) sprinting = true;
+        else sprinting = false;
+        float sprintModifier = sprinting ? 2 : 1;
+
         Vector3 prePos = transform.position;
-        verticalMovement = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
-        horizontalMovement = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
+        verticalMovement = Input.GetAxis("Vertical") * moveSpeed * sprintModifier * Time.deltaTime;
+        horizontalMovement = Input.GetAxis("Horizontal") * moveSpeed * sprintModifier * Time.deltaTime;
         transform.Translate(new Vector3(horizontalMovement, 0, verticalMovement));
-        if (transform.position != prePos) weaponHandlerAnim.SetBool("Walking", true); else weaponHandlerAnim.SetBool("Walking", false);
-        
+        if (transform.position != prePos && sprinting) weaponHandlerAnim.SetBool("Walking", true); else weaponHandlerAnim.SetBool("Walking", false);
+        // bug: rename from walking to sprinting in animator, make so cant shoot while sprinting in guncontroller
     }
 
     private void Inputs()
