@@ -33,10 +33,10 @@ public class FirstState : State<EnemyAI>
     {   
         Debug.Log("Updating First State");
         
-        if (Owner.switchState)
-        {
-            Owner.stateMachine.ChangeState(SecondState.Instance);
-        }
+        //if (Owner.switchState)
+        //{
+        //    Owner.stateMachine.ChangeState(SecondState.Instance);
+        //}
     }
 
     public override void DebugState(EnemyAI Owner)

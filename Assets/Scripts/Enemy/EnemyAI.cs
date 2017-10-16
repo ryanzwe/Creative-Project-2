@@ -7,31 +7,27 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
 
-    public bool switchState = false;
-    public float gameT = 0.0f;
-    public int seconds = 0;
     public StateMachine<EnemyAI> stateMachine { get; set; }
-    private NavMeshAgent[] agents;
-    private EnemyAttackTimer[] enemyTimers;
+    public string CurrentStateString = string.Empty;
+    private NavMeshAgent agent;
+    private EnemyAttackTimer enemyTimers;
+    private GameObject player;
 
     public float TargetRange;
+    public EnemyAttack enemyAttack;
+    public FindTarget findTarget;
 
     private void Start()
     {
-        int childCt = transform.childCount;
-        agents = new NavMeshAgent[childCt];
-        enemyTimers = new EnemyAttackTimer[childCt];
-        for (int i = 0; i < childCt; i++)
-        {
-            agents[i] = transform.GetChild(i).GetComponent<NavMeshAgent>();
-            enemyTimers[i] = transform.GetChild(i).GetComponent<EnemyAttackTimer>();
-        }
+        player = GameObject.Find("Player");
+        agent = transform.GetComponent<NavMeshAgent>();
+        enemyTimers = transform.GetComponent<EnemyAttackTimer>();
         // Creating a new Statemachine for the Ai to use, the type is an AISate, and the Owner is this instance
         stateMachine = new StateMachine<EnemyAI>(this);
-        stateMachine.ChangeState(new FindTarget(this.gameObject,TargetRange,"Player",this.agents));
-        new EnemyAttack(this.gameObject, this.agents,this.enemyTimers); // Creating the instance
-        //stateMachine.ChangeState(FirstState.Instance);
-        Debug.Log("Owner: " + stateMachine.Owner + "State: " + stateMachine.CurrentState);
+        enemyAttack = new EnemyAttack(this.gameObject, this.agent, this.enemyTimers,player); // Creating the instance
+        findTarget = new FindTarget(this.gameObject, TargetRange, "Player", this.agent, player);
+        stateMachine.ChangeState(findTarget);
+      //  Debug.Log("Owner: " + stateMachine.Owner + "State: " + stateMachine.CurrentState);
     }
 
     void Update()
@@ -47,6 +43,7 @@ public class EnemyAI : MonoBehaviour
         //    switchState = !switchState;
         //}
         stateMachine.Update();
+        CurrentStateString = stateMachine.CurrentState.ToString();
     }
 
 }

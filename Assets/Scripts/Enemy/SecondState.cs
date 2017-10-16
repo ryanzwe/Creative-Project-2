@@ -31,10 +31,10 @@ public class SecondState : State<EnemyAI>
 
     public override void UpdateState(EnemyAI Owner)
     {
-        if (!Owner.switchState)
-        {
-            Owner.stateMachine.ChangeState(FirstState.Instance);
-        }
+        //if (!Owner.switchState)
+        //{
+        //    Owner.stateMachine.ChangeState(FirstState.Instance);
+        //}
     }
     public override void DebugState(EnemyAI Owner)
     {

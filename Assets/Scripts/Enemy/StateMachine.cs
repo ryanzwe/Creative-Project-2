@@ -6,7 +6,7 @@ namespace Enemy
     {// The current state that the machine is in, as well as the owner of that state 
         public State<T> CurrentState { get; private set; }
 
-        private State<T> previousState;
+        //private State<T> previousState;
         public T Owner;
 
         public StateMachine(T Owner)

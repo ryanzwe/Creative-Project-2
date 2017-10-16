@@ -38,9 +38,10 @@ public class EnemyPooling : MonoBehaviour
             gb.SetActive(false);
             gb.transform.parent = this.transform;
             enemies[i] = gb;
+            gb.name = "Zombie " + i;
             Create(SpawnPositions[i], Quaternion.identity);
         }
-        GetComponent<EnemyAI>().enabled = true;
+        //GetComponent<EnemyAI>().enabled = true;
     }
 
     public GameObject Create(Vector3 pos, Quaternion rot)
