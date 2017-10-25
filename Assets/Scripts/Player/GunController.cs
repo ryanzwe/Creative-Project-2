@@ -80,8 +80,8 @@ public class GunController : MonoBehaviour
             //StartCoroutine(AnimationFlick("Shooting", 0.001f));
             anim.SetTrigger("Shooting");
         }
-        else if(Input.GetButtonDown("Fire1") && clipAmount == 0 && currentClip == 0)
-             audio.PlayOneShot(DrySound);
+        else if (Input.GetButtonDown("Fire1") && clipAmount == 0 && currentClip == 0)
+            audio.PlayOneShot(DrySound);
         // If the gun has no ammo left in the clip, no clips remaining, and can't reload then play the dry sound 
     }
 
@@ -94,32 +94,45 @@ public class GunController : MonoBehaviour
         if (Physics.Raycast(mainC.transform.position, mainC.transform.forward, out hit, Range))
         {
             bulletsShot++;
-            if (hit.transform.CompareTag("Enemy"))
-            {
-                hit.transform.GetComponent<EnemyController>().Damage(Damage);
-            }
-            if (hit.rigidbody != null)
-            {
-               // hit.rigidbody.AddForce(-hit.normal * KnockBack);
-            }
-            // spawning a particle system where it hits 
+            // Spawning a pooled particle system at the location 
             GameObject temp = GameController.Instance.HitPSPooled[bulletsShot % GameController.Instance.ImpactPSPool].gameObject;
-            if (hit.transform.GetComponent<Renderer>() != null)
-            {
-                temp.GetComponent<Renderer>().material = hit.transform.GetComponent<Renderer>().material;
-                if (hit.transform.CompareTag("Enemy"))
-                { // If shooting the enemy, make the material red so it looks like blood 
-                    temp.GetComponent<Renderer>().material.color = new Color(1f,0f,0f);
-                }// If not change the material to what it's shooting, to make it look better 
+            // If they are shooting anything but the player then grab the material, and set the particlesystems material to it to appear as if it were shooting chunks
+            if (!hit.transform.CompareTag("Enemy"))
+            {// If the object being shot does have a material assigned to it
+                if (hit.transform.gameObject.GetComponent<Renderer>().material.mainTexture != null)
+                {
+                    // Grabbing the texture from what was shot
+                    Texture2D tex = (Texture2D)hit.transform.gameObject.GetComponentInChildren<Renderer>().material
+                        .mainTexture;
+                    // Grabbing the UV from where the raycast had hit 
+                    Vector2 UVs = new Vector2(hit.textureCoord.x * tex.width, hit.textureCoord.y * tex.height);
+                    // getting the pixels from the UV co-ords
+                    Color col = tex.GetPixel(Mathf.RoundToInt(UVs.x), Mathf.RoundToInt(UVs.y));
+                    // setting the particle systems materials colour to the colour data
+                    temp.GetComponent<Renderer>().material.color = col;
+                }
+                else // If the object being shot doesn't have a texture assigned to it (meaning it's a flat material)
+                    temp.GetComponent<Renderer>().material = hit.transform.GetComponent<Renderer>().material;
             }
+            else
+            {// If an enemy was shot, make them take damage and drop blood 
+                hit.transform.GetComponent<EnemyController>().Damage(Damage);
+                temp.GetComponent<Renderer>().material.color = new Color(1f, 0f, 0f);
+            }
+            // Set the position of the pooled ps to where it was hit by the raycast, and set the rotation the direction the normal was facing
             temp.transform.SetPositionAndRotation(hit.point, Quaternion.LookRotation(hit.normal));
             temp.SetActive(true);
 
+            //if (hit.rigidbody != null)
+            //{
+            //    // hit.rigidbody.AddForce(-hit.normal * KnockBack);
+            //}
         }
     }
 
     private void Audio()
     {
+        // Choose a random audio clip from the audio array and play it 
         int r = Random.Range(0, ShootingSounds.Length);
         audio.clip = ShootingSounds[r];
         audio.Play();
@@ -129,15 +142,17 @@ public class GunController : MonoBehaviour
     private IEnumerator Reload()
     {// Starting reload
         reloading = true;
-        //if(clipAmount >0)
-            ClipAmount--;
+        // Take away ammo and start the reloading animation
+        ClipAmount--;
         anim.SetTrigger("Reloading");
+        // play the sound and delay for the reload speed take the animation transition delay, then reload and set the clip size again
         audio.PlayOneShot(ReloadSound);
         yield return new WaitForSeconds(ReloadSpeed - 0.25f);// The reload anim has a .25f transition delay, alows player to shoot when anim just finishes, instead of waiting
         reloading = false;
         CurrentClip = ClipSize;
 
     }
+    // old code
     private IEnumerator AnimationFlick(string Parameter, float delay, bool NotReverse = true)
     {
         anim.SetBool(Parameter, NotReverse);

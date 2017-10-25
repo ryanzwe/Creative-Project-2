@@ -53,7 +53,8 @@ public class EnemyPooling : MonoBehaviour
                 ZombiesCreated++;
                 enemies[i].GetComponent<NavMeshAgent>().enabled = true;
                 enemies[i].SetActive(true);
-                enemies[i].transform.position = pos;
+               // enemies[i].transform.position = pos;
+                enemies[i].GetComponent<NavMeshAgent>().Warp(pos);// If i do setposition then the agent gets confused and doesn't get set properly.
                 enemies[i].transform.rotation = rot;
                 enemies[i].GetComponent<EnemyController>().health = 100;
                 return enemies[i];
