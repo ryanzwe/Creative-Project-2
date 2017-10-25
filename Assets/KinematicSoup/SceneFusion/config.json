@@ -1,0 +1,7 @@
+{
+	"WebAPI": "https://console.kinematicsoup.com:8001/api",
+    "WebConsole": "https://console.kinematicsoup.com",
+    "Documentation": "https://docs.kinematicsoup.com",
+    "SupportEmail": "support@kinematicsoup.com",
+    "Debug": true
+}

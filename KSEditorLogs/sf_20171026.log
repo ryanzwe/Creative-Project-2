@@ -1,0 +1,28 @@
+2017-10-26 00:15:44.2044 [DEBUG] Connecting to room (46658:SceneFusion:SceneFusion) via TCP at console.kinematicsoup.com:1025
+2017-10-26 01:09:08.1024 [DEBUG] Sent S:/Unity Projects/Creative Proj 2 Files/Creative-Project-2/KSEditorLogs/SessionLogs/session.46658-636445737442144109.log
+2017-10-26 01:13:09.5224 [DEBUG] Refresh token (QOSle93KdXYnqzRpBWLSrYhefMFdkZu1aFd7DOSCQKIQyad2D3EA2MToQStKO6wKiud9zhsmAwCfbfCKRMjo9GSqpje3s1446RQb8pexfh1XXin90cNnRrZzJfHoGX2d2hAqDJij5IxsGsjeC66ak1LU7lp6koRZK7OwsFCUHIap6wtCMSnnWiUk0e4NF8uhECzazu6NDwFM9l7WEelFW9nKdUOzsHA3H8pTI9WcL2P4F3hDGCEnSBmOrfXnrJI) error: {"err":"Error getting response stream (ReadDone2): ReceiveFailure"}
+2017-10-26 04:40:30.9264 [DEBUG] Refresh token (DPCKZaBeESSK539YLXnUIXrzUhLS8Z7UnQLLLNDD3rJmY1WeB3fblFJeGaPe0JRULAFZorpRe4El60bOpzej79X2i85mXQQMPcQ4Tfu5ciSz0KNtejd9XikzpJamujRPCH1ugjw6j6Fc4TS0p8d4BXbUENTIFrnykt5HuCHlF6UC1IZccm51iqqWc7OyQhpbPNJmri35ZUiLbT41HGMfcefehSErPIA1muZ4uyYAml4UDhwt9TXGPkWxIXQWi9c) error: {"err":"Error getting response stream (ReadDone2): ReceiveFailure"}
+2017-10-26 04:45:21.7794 [DEBUG] Scene Fusion version 1.6.0-1
+2017-10-26 04:45:21.9984 [DEBUG] Play mode: True, sync in play mode: False
+2017-10-26 04:45:28.5424 [DEBUG] Play mode: False
+2017-10-26 04:53:23.3294 [DEBUG] Refresh token (DPCKZaBeESSK539YLXnUIXrzUhLS8Z7UnQLLLNDD3rJmY1WeB3fblFJeGaPe0JRULAFZorpRe4El60bOpzej79X2i85mXQQMPcQ4Tfu5ciSz0KNtejd9XikzpJamujRPCH1ugjw6j6Fc4TS0p8d4BXbUENTIFrnykt5HuCHlF6UC1IZccm51iqqWc7OyQhpbPNJmri35ZUiLbT41HGMfcefehSErPIA1muZ4uyYAml4UDhwt9TXGPkWxIXQWi9c) error: {"err":"Error getting response stream (ReadDone2): ReceiveFailure"}
+2017-10-26 05:18:24.2814 [DEBUG] Scene Fusion version 1.6.0-1
+2017-10-26 05:18:24.4014 [DEBUG] Play mode: True, sync in play mode: False
+2017-10-26 05:18:38.3984 [DEBUG] Play mode: False
+2017-10-26 05:18:58.4524 [DEBUG] Scene Fusion version 1.6.0-1
+2017-10-26 05:18:58.5334 [DEBUG] Play mode: True, sync in play mode: False
+2017-10-26 05:22:58.8174 [DEBUG] Refresh token (DPCKZaBeESSK539YLXnUIXrzUhLS8Z7UnQLLLNDD3rJmY1WeB3fblFJeGaPe0JRULAFZorpRe4El60bOpzej79X2i85mXQQMPcQ4Tfu5ciSz0KNtejd9XikzpJamujRPCH1ugjw6j6Fc4TS0p8d4BXbUENTIFrnykt5HuCHlF6UC1IZccm51iqqWc7OyQhpbPNJmri35ZUiLbT41HGMfcefehSErPIA1muZ4uyYAml4UDhwt9TXGPkWxIXQWi9c) error: {"err":"Error getting response stream (ReadDone2): ReceiveFailure"}
+2017-10-26 05:24:09.0314 [DEBUG] Play mode: False
+2017-10-26 05:24:20.5484 [DEBUG] Scene Fusion version 1.6.0-1
+2017-10-26 05:24:20.6354 [DEBUG] Play mode: True, sync in play mode: False
+2017-10-26 05:25:00.9434 [DEBUG] Play mode: False
+2017-10-26 05:26:21.6034 [DEBUG] Refresh token (DPCKZaBeESSK539YLXnUIXrzUhLS8Z7UnQLLLNDD3rJmY1WeB3fblFJeGaPe0JRULAFZorpRe4El60bOpzej79X2i85mXQQMPcQ4Tfu5ciSz0KNtejd9XikzpJamujRPCH1ugjw6j6Fc4TS0p8d4BXbUENTIFrnykt5HuCHlF6UC1IZccm51iqqWc7OyQhpbPNJmri35ZUiLbT41HGMfcefehSErPIA1muZ4uyYAml4UDhwt9TXGPkWxIXQWi9c) error: {"err":"Error getting response stream (ReadDone2): ReceiveFailure"}
+2017-10-26 05:26:43.8844 [DEBUG] Scene Fusion version 1.6.0-1
+2017-10-26 05:26:43.9734 [DEBUG] Play mode: True, sync in play mode: False
+2017-10-26 05:27:11.5774 [DEBUG] Play mode: False
+2017-10-26 05:28:16.9834 [DEBUG] Scene Fusion version 1.6.0-1
+2017-10-26 05:28:17.0654 [DEBUG] Play mode: True, sync in play mode: False
+2017-10-26 05:28:29.3614 [DEBUG] Play mode: False
+2017-10-26 05:28:54.3544 [DEBUG] Scene Fusion version 1.6.0-1
+2017-10-26 05:28:54.4524 [DEBUG] Play mode: True, sync in play mode: False
+2017-10-26 05:30:26.2884 [DEBUG] Play mode: False
