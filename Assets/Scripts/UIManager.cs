@@ -17,5 +17,7 @@ public class UIManager
     [Header("Gameplay Directions")]
     public Text StickCount;
 
+    public Text StickRemaining;
+
     public Image StickImage;
 }

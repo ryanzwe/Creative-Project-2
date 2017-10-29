@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: c6f95dab537e629488a734710ffa7f4d
-timeCreated: 1508914054
+guid: d75077bd313c19645bd3cd87e03d9693
+timeCreated: 1509259553
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Cylinder015
+    4300000: Cylinder020
   materials:
     importMaterials: 1
     materialName: 0
@@ -37,7 +37,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 1.5
     meshCompression: 0
     addColliders: 0
     importVisibility: 1

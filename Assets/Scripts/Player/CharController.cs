@@ -8,7 +8,7 @@ using UnityEngineInternal.Input;
 /// </summary>
 public class CharController : MonoBehaviour
 {
-    
+
     // Player Movement
     private float verticalMovement;
     private float horizontalMovement;
@@ -28,12 +28,23 @@ public class CharController : MonoBehaviour
 
     private bool sprinting = false;
     // Extra
-    private bool cursLocked = false;
     private GameObject cam;
     public float PickupDistance = 5f;
     public Animator weaponHandlerAnim;
+
+    public Animator LogHandlerAnim;
     // Shooting control
+    [SerializeField]
     private GunController cur;
+
+    public GunController Cur
+    {
+        get { return cur; }
+        set
+        {
+            cur = value;
+        }
+    }
 
     private bool canShoot;
 
@@ -43,7 +54,7 @@ public class CharController : MonoBehaviour
         get { return instance; }
     }
 
-    
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -65,10 +76,9 @@ public class CharController : MonoBehaviour
         Movement();
     }
 
-
     private void Movement()
     {// If sprintine make the modifier 2, else 1 
-        if (Input.GetKey(KeyCode.LeftShift)) sprinting = true;
+        if (Input.GetKey(KeyCode.LeftShift) && GameController.Instance.CurrentLogCount < 2) sprinting = true;
         else sprinting = false;
         float sprintModifier = sprinting ? 2 : 1;
         // Getting the position the frame prior to moving
@@ -78,18 +88,18 @@ public class CharController : MonoBehaviour
         transform.Translate(new Vector3(horizontalMovement, 0, verticalMovement));
 
         // IF the character isn't at the same spot as the last frame, and is sprinting then play the anim
-        if (transform.position != prePos && sprinting)
+        if (sprinting)
         {
             weaponHandlerAnim.SetBool("Sprinting", true);
             // Disable the gun so the player can't shoot
             cur.enabled = false;
+            return;
         }
-        else
-        {
-            weaponHandlerAnim.SetBool("Sprinting", false);
-            // Enable the gun so the player can shoot
+        // if not sprinting
+        weaponHandlerAnim.SetBool("Sprinting", false);
+        // Enable the gun so the player can shoot
+        if (GameController.Instance.CurrentLogCount < 2)
             cur.enabled = true;
-        }
     }
 
     private void Inputs()
@@ -102,14 +112,31 @@ public class CharController : MonoBehaviour
             Debug.DrawRay(cam.transform.position, cam.transform.forward * PickupDistance, Color.red, 1);
             if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, PickupDistance))
             {
-                if (hit.collider.CompareTag("Log"))
+                if (hit.collider.CompareTag("Log") && GameController.Instance.CurrentLogCount < 2)
                 {// Make the log fly towards the player 
-                    Vector3 dir = new Vector3(transform.position.x - hit.transform.position.x, transform.position.y - hit.transform.position.y + 2f, transform.position.z - hit.transform.position.z);
-                    Physics.IgnoreCollision(hit.collider, GetComponent<Collider>());// Disable collision so it doesn't push the player 
-                    hit.collider.GetComponent<Rigidbody>().AddForce(dir * 2f, ForceMode.Impulse);// Adding the force towards the player 
-                    Destroy(hit.collider.gameObject, 1f);// destroying the log after as econd 
+                    //Vector3 dir = new Vector3(transform.position.x - hit.transform.position.x, transform.position.y - hit.transform.position.y + 2f, transform.position.z - hit.transform.position.z);
+                    //Physics.IgnoreCollision(hit.collider, GetComponent<Collider>());// Disable collision so it doesn't push the player 
+                    //hit.collider.GetComponent<Rigidbody>().AddForce(dir * 2f, ForceMode.Impulse);// Adding the force towards the player 
+                    //Destroy(hit.collider.gameObject, 1f);// destroying the log after as econd 
+                    Destroy(hit.collider.gameObject);
                     GameController.Instance.CurrentLogCount++;// adding one to the playes log count, for game completion
                     SoundHandler.Instance.PlaySound(SoundHandler.Sounds.Pickup_Extra);// as this is an extra item, play this sound 
+                }
+                else if (hit.collider.CompareTag("LogBase"))
+                { // taking away the players logs and placing them onto the log pile
+                    cur.enabled = true;
+                    if (GameController.Instance.CurrentLogCount == 2)
+                    {
+                        CharController.Instance.weaponHandlerAnim.SetTrigger("GunUp");
+                        CharController.Instance.LogHandlerAnim.SetTrigger("LogsDown");
+                    }
+                    GameController.Instance.LogsRemaining -= GameController.Instance.CurrentLogCount;
+                    GameController.Instance.CurrentLogCount = 0;
+                    //TO:Do - Log placement 
+
+
+
+
                 }
             }
         }
@@ -164,8 +191,8 @@ public class CharController : MonoBehaviour
         Cursor.visible = false;
     }
 
-    public void UpdateCurrentWeapon(GunController cur)
+    public void UpdateCurrentWeapon(GunController curr)
     {
-        this.cur = cur;
+        Cur = curr;
     }
 }

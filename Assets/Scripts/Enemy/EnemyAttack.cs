@@ -43,13 +43,13 @@ public class EnemyAttack : State<EnemyAI>
     //}
     public override void EnterState(EnemyAI Owner)
     {
-        Debug.Log("Entering EnemyAttack");
+       // Debug.Log("Entering EnemyAttack");
 
     }
 
     public override void ExitState(EnemyAI Owner)
     {
-        Debug.Log("Exiting EnemyAttack");
+       //Debug.Log("Exiting EnemyAttack");
     }
 
     public override void UpdateState(EnemyAI Owner)
@@ -85,7 +85,7 @@ public class EnemyAttack : State<EnemyAI>
 
     private void Attack()
     {
-        Debug.Log("Hit!");
+     //   Debug.Log("Hit!");
         PlayerController.Instance.Health -= AttackDamage;
     }
 }

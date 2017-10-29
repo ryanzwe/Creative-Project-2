@@ -33,7 +33,7 @@ public class EnemyAttackTimer : MonoBehaviour
         if (timeTillAttack > 0)
         { // created timeTillAttack instead of attackCounter to prevent it becoming exponentially smaller, instead of set amt
             timeTillAttack -= DecrementAmt;
-            Debug.Log("Atk in: " + timeTillAttack);
+            //Debug.Log("Atk in: " + timeTillAttack);
             return;
         }
         CanAttack = true;

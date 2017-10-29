@@ -55,12 +55,15 @@ public class GunController : MonoBehaviour
         CurrentClip = ClipSize;
         mainC = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
-    void OnEnable()
+    private void OnEnable()
     {
         audio.Stop();
         reloading = false;
         if (initialized)
+        {
             CurrentClip = currentClip; // Used to trigger the properties set function and update UI
+            ClipAmount = clipAmount;
+        }
         Char.UpdateCurrentWeapon(this);// tell the charcontroller that this is the new gun, to update for sprinting
     }
     private void Update()
@@ -142,23 +145,16 @@ public class GunController : MonoBehaviour
     private IEnumerator Reload()
     {// Starting reload
         reloading = true;
-        // Take away ammo and start the reloading animation
-        ClipAmount--;
-        anim.SetTrigger("Reloading");
+        anim.SetTrigger("Reloading");  // Play thee reloading animation
         // play the sound and delay for the reload speed take the animation transition delay, then reload and set the clip size again
         audio.PlayOneShot(ReloadSound);
         yield return new WaitForSeconds(ReloadSpeed - 0.25f);// The reload anim has a .25f transition delay, alows player to shoot when anim just finishes, instead of waiting
         reloading = false;
+        // Take away ammo and set the clip back to how many bullets it's supposed to have 
+        ClipAmount--;
         CurrentClip = ClipSize;
 
     }
-    // old code
-    private IEnumerator AnimationFlick(string Parameter, float delay, bool NotReverse = true)
-    {
-        anim.SetBool(Parameter, NotReverse);
-        yield return new WaitForSeconds(delay);
-        anim.SetBool(Parameter, !NotReverse);
 
-    }
 
 }

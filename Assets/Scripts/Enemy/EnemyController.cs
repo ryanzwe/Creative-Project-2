@@ -13,9 +13,9 @@ public class EnemyController : MonoBehaviour
         if (health <= 0)
         {
             GetComponent<NavMeshAgent>().enabled = false;
-            if (Random.value < 0.1f)
+            if (Random.value > 0.1f)
             {
-                GameObject gb = Instantiate(GameController.Instance.Log,transform.position,Quaternion.Euler(new Vector3(90f,0f,0f)));
+                GameObject gb = Instantiate(GameController.Instance.Log,transform.position,Quaternion.identity);
                 gb.GetComponent<Rigidbody>().AddForce(Vector3.up * 15f);
 
             }

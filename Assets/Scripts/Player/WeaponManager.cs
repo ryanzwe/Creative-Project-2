@@ -21,6 +21,7 @@ public class WeaponManager : MonoBehaviour
     }
     private void Update()
     {
+        if(GameController.Instance.CurrentLogCount != 2)
         Switching();
     }
     void EquipWeapon()

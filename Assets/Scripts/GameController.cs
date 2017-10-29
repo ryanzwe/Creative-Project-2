@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
-using UnityEngine;
+﻿using UnityEngine;
 
 
 public class GameController : MonoBehaviour
@@ -17,7 +14,36 @@ public class GameController : MonoBehaviour
     public GameObject[] HitPSPooled;
     [Header("Logs")]
     public GameObject Log;
-    public int CurrentLogCount = 0;
+
+    private int currentLogCount;
+    private int logsRemaining = 20;
+    public int LogsRemaining
+    {
+        get { return logsRemaining; }
+        set
+        {
+            logsRemaining = value;
+            ui.StickRemaining.text = value.ToString();
+        }
+    }
+
+    public int CurrentLogCount // Update UI, Trigger 
+    {
+        get { return currentLogCount; }
+        set
+        {
+            currentLogCount = value;
+            ui.StickCount.text = currentLogCount.ToString();
+            if (currentLogCount == 2)
+            {
+                UpdateStickAnimations();
+
+            }
+        }
+    }
+
+    
+
     [Header("Extra")]
     public UIManager ui;
     [Header("Timers")]
@@ -51,6 +77,12 @@ public class GameController : MonoBehaviour
             GameTime = Time.time;
             if (OnSecondChange != null) OnSecondChange();
         }
+    }
+    private void UpdateStickAnimations()
+    {
+        CharController.Instance.Cur.enabled = false;
+        CharController.Instance.weaponHandlerAnim.SetTrigger("GunDown");// Put the players gun down, and enable logs animator
+        CharController.Instance.LogHandlerAnim.SetTrigger("LogsUp");
     }
 }
 

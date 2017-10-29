@@ -1,1 +1,67 @@
 2017-10-28 05:02:44.6204 [DEBUG] Scene Fusion version 1.6.0-1
+2017-10-28 21:49:08.6034 [DEBUG] Scene Fusion version 1.6.0-1
+2017-10-28 21:49:15.5044 [DEBUG] Scene Fusion version 1.6.0-1
+2017-10-28 22:11:44.0034 [DEBUG] Scene Fusion version 1.6.0-1
+2017-10-28 22:11:44.2394 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEngine.PostProcessing.EyeAdaptationComponent.get_active () (at Assets/PostProcessing/Runtime/Components/EyeAdaptationComponent.cs:37)
+UnityEngine.PostProcessing.PostProcessingBehaviour.OnGUI () (at Assets/PostProcessing/Runtime/PostProcessingBehaviour.cs:305)
+
+2017-10-28 22:37:17.1834 [DEBUG] Scene Fusion version 1.6.0-1
+2017-10-28 22:37:17.4824 [DEBUG] Play mode: True, sync in play mode: False
+2017-10-28 22:39:52.9874 [DEBUG] Play mode: False
+2017-10-28 23:39:59.0794 [DEBUG] Scene Fusion version 1.6.0-1
+2017-10-28 23:39:59.2544 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEngine.PostProcessing.EyeAdaptationComponent.get_active () (at Assets/PostProcessing/Runtime/Components/EyeAdaptationComponent.cs:37)
+UnityEngine.PostProcessing.PostProcessingBehaviour.OnGUI () (at Assets/PostProcessing/Runtime/PostProcessingBehaviour.cs:305)
+
+2017-10-28 23:47:38.4954 [DEBUG] Scene Fusion version 1.6.0-1
+2017-10-28 23:47:38.6624 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEngine.PostProcessing.EyeAdaptationComponent.get_active () (at Assets/PostProcessing/Runtime/Components/EyeAdaptationComponent.cs:37)
+UnityEngine.PostProcessing.PostProcessingBehaviour.OnGUI () (at Assets/PostProcessing/Runtime/PostProcessingBehaviour.cs:305)
+
+2017-10-28 23:48:34.9464 [DEBUG] Scene Fusion version 1.6.0-1
+2017-10-28 23:48:35.0654 [DEBUG] Play mode: True, sync in play mode: False
+2017-10-28 23:49:55.2914 [DEBUG] Play mode: False
+2017-10-28 23:49:58.6064 [DEBUG] Scene Fusion version 1.6.0-1
+2017-10-28 23:49:58.7184 [DEBUG] Play mode: True, sync in play mode: False
+2017-10-28 23:51:16.7894 [DEBUG] Play mode: False
+2017-10-28 23:52:25.4754 [DEBUG] Scene Fusion version 1.6.0-1
+2017-10-28 23:52:25.5744 [DEBUG] Play mode: True, sync in play mode: False
+2017-10-28 23:53:18.5304 [ERROR] MissingComponentException: There is no 'Renderer' attached to the "Small_Plant (4)" game object, but a script is trying to access it.
+You probably need to add a Renderer to the game object "Small_Plant (4)". Or your script needs to check if the component is attached before using it.
+GunController.Fire () (at Assets/Scripts/Player/GunController.cs:102)
+GunController.Update () (at Assets/Scripts/Player/GunController.cs:77)
+
+2017-10-28 23:53:18.6574 [ERROR] MissingComponentException: There is no 'Renderer' attached to the "Small_Plant (4)" game object, but a script is trying to access it.
+You probably need to add a Renderer to the game object "Small_Plant (4)". Or your script needs to check if the component is attached before using it.
+GunController.Fire () (at Assets/Scripts/Player/GunController.cs:102)
+GunController.Update () (at Assets/Scripts/Player/GunController.cs:77)
+
+2017-10-28 23:53:18.7734 [ERROR] MissingComponentException: There is no 'Renderer' attached to the "Small_Plant (4)" game object, but a script is trying to access it.
+You probably need to add a Renderer to the game object "Small_Plant (4)". Or your script needs to check if the component is attached before using it.
+GunController.Fire () (at Assets/Scripts/Player/GunController.cs:102)
+GunController.Update () (at Assets/Scripts/Player/GunController.cs:77)
+
+2017-10-28 23:53:18.8984 [ERROR] MissingComponentException: There is no 'Renderer' attached to the "Small_Plant (4)" game object, but a script is trying to access it.
+You probably need to add a Renderer to the game object "Small_Plant (4)". Or your script needs to check if the component is attached before using it.
+GunController.Fire () (at Assets/Scripts/Player/GunController.cs:102)
+GunController.Update () (at Assets/Scripts/Player/GunController.cs:77)
+
+2017-10-28 23:53:21.0564 [ERROR] MissingComponentException: There is no 'Renderer' attached to the "Small_Plant (4)" game object, but a script is trying to access it.
+You probably need to add a Renderer to the game object "Small_Plant (4)". Or your script needs to check if the component is attached before using it.
+GunController.Fire () (at Assets/Scripts/Player/GunController.cs:102)
+GunController.Update () (at Assets/Scripts/Player/GunController.cs:77)
+
+2017-10-28 23:53:33.8464 [DEBUG] Play mode: False
+2017-10-28 23:54:52.9334 [DEBUG] Scene Fusion version 1.6.0-1
+2017-10-28 23:54:52.9704 [DEBUG] Play mode: True, sync in play mode: False
+2017-10-28 23:55:37.2774 [DEBUG] Play mode: False
+2017-10-28 23:55:57.1864 [DEBUG] Scene Fusion version 1.6.0-1
+2017-10-28 23:55:57.2614 [DEBUG] Play mode: True, sync in play mode: False
+2017-10-28 23:57:04.3794 [DEBUG] Play mode: False
+2017-10-28 23:57:10.4294 [DEBUG] Scene Fusion version 1.6.0-1
+2017-10-28 23:57:10.5044 [DEBUG] Play mode: True, sync in play mode: False
+2017-10-28 23:57:56.8694 [DEBUG] Play mode: False
+2017-10-28 23:58:33.2184 [DEBUG] Scene Fusion version 1.6.0-1
+2017-10-28 23:58:33.2654 [DEBUG] Play mode: True, sync in play mode: False
+2017-10-28 23:59:43.4984 [DEBUG] Play mode: False
