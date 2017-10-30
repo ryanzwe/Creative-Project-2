@@ -21040,3 +21040,12 @@ ColourPulse.Update () (at Assets/Scripts/Animation/ColourPulse.cs:41)
 2017-10-30 20:06:40.5190 [DEBUG] Scene Fusion version 1.6.0-1
 2017-10-30 20:06:40.6400 [DEBUG] Play mode: True, sync in play mode: False
 2017-10-30 20:07:27.2130 [DEBUG] Play mode: False
+2017-10-30 20:11:57.8730 [DEBUG] Scene Fusion version 1.6.0-1
+2017-10-30 20:11:58.0420 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEngine.PostProcessing.EyeAdaptationComponent.get_active () (at Assets/PostProcessing/Runtime/Components/EyeAdaptationComponent.cs:37)
+UnityEngine.PostProcessing.PostProcessingBehaviour.OnGUI () (at Assets/PostProcessing/Runtime/PostProcessingBehaviour.cs:305)
+
+2017-10-30 20:13:19.4220 [DEBUG] Scene Fusion version 1.6.0-1
+2017-10-30 21:16:52.1180 [DEBUG] Scene Fusion version 1.6.0-1
+2017-10-30 21:16:52.2020 [DEBUG] Play mode: True, sync in play mode: False
+2017-10-30 21:17:37.9850 [DEBUG] Play mode: False
