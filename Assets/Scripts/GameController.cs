@@ -48,6 +48,17 @@ public class GameController : MonoBehaviour
     public float GameTime;
     public delegate void SecondEvent();
     public event SecondEvent OnSecondChange;
+    private int score;
+
+    public int Score
+    {
+        get { return score; }
+        set
+        {
+            score = value;
+            ui.Score.text = "Score: " + Score.ToString();
+        }
+    }
 
 
    private  void Awake()
@@ -89,6 +100,8 @@ public class GameController : MonoBehaviour
         for (int i = LogsPlaced; i < LogsPlaced + amount; i++)
         {
             LogChilds[i].material = LogMats[1];
+            LogChilds[i].gameObject.GetComponent<BoxCollider>().isTrigger = false;
+
         }
         LogsPlaced += amount;
     }

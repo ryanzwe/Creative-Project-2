@@ -22,11 +22,11 @@ public class PlayerController : MonoBehaviour
 
 
     private void OnEnable()
-    {
+    {// Subscribe to the OnSecondChange event and apply the HealthOvertime method
         GameController.Instance.OnSecondChange += HealthOverTime;
     }
     private void OnDisable()
-    {
+    {// Un-Subscribe to the OnSecondChange event and apply the HealthOvertime method
         GameController.Instance.OnSecondChange -= HealthOverTime;
     }
     private void Start()

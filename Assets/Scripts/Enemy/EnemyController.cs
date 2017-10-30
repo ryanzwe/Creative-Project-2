@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class EnemyController : MonoBehaviour
 {
     public int health = 100;
-
+    public int ScoreValue = 50;
     public void Damage(int damage)
     {
         health -= damage;
@@ -17,8 +17,8 @@ public class EnemyController : MonoBehaviour
             {
                 GameObject gb = Instantiate(GameController.Instance.Log,transform.position,Quaternion.identity);
                 gb.GetComponent<Rigidbody>().AddForce(Vector3.up * 15f);
-
             }
+            GameController.Instance.Score += ScoreValue;
             EnemyPooling.Instance.Deactivate(this.gameObject);
 
         }

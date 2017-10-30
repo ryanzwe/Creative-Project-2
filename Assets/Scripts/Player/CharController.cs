@@ -124,20 +124,31 @@ public class CharController : MonoBehaviour
                 }
                 else if (hit.collider.CompareTag("LogBase"))
                 { // taking away the players logs and placing them onto the log pile
-                    cur.enabled = true;
-                    if (GameController.Instance.CurrentLogCount == 2)
+                    if (GameController.Instance.LogsRemaining == 0 || GameController.Instance.CurrentLogCount == 0)
                     {
+                        Debug.Log("Games Finished Already or no logs");
+                        return;
+                    }
+                    if (GameController.Instance.CurrentLogCount == 2)
+                    {// Play  character animation sequence
                        weaponHandlerAnim.SetTrigger("GunUp");
                        LogHandlerAnim.SetTrigger("LogsDown");
+                        if (GameController.Instance.LogsRemaining == 1)
+                            GameController.Instance.CurrentLogCount = 1; // Prevents out of range error 
                     }
+                    // Re enable the weapon
+                    cur.enabled = true;// take away from the logs remaining counter
                     GameController.Instance.LogsRemaining -= GameController.Instance.CurrentLogCount;
                     GameController.Instance.PlaceLog(GameController.Instance.CurrentLogCount);
-                    GameController.Instance.CurrentLogCount = 0;
+                    GameController.Instance.CurrentLogCount = 0;// increment the placed logs, reset held logs, and play sound
+                    SoundHandler.Instance.PlaySound(SoundHandler.Sounds.Objective_Complete);
                 } 
                 else if (hit.collider.CompareTag("AmmoPickup"))
                 {
                     int r = Random.Range(0, WeaponManager.Instance.transform.childCount);
                     WeaponManager.Instance.transform.GetChild(r).GetComponent<GunController>().ClipAmount++;
+                    SoundHandler.Instance.PlaySound(SoundHandler.Sounds.Pickup_Extra);
+                    Destroy(hit.collider.gameObject);
                 }
             }
         }

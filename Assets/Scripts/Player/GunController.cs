@@ -11,6 +11,8 @@ public class GunController : MonoBehaviour
     public float ReloadSpeed = 2f;
     //Reloading & ammo
     public int ClipSize;// How many bullets there can be  -- CLIP ZONE
+
+    public int MaxClipsAllowed = 5;
     private int currentClip;
     public int CurrentClip
     {
@@ -29,7 +31,7 @@ public class GunController : MonoBehaviour
         get { return clipAmount; }
         set
         {
-            if (value == 6)
+            if (value > MaxClipsAllowed)
             {
                 Debug.Log("Max Ammo");
                 return;

@@ -20311,3 +20311,64 @@ UnityEngine.PostProcessing.PostProcessingBehaviour.OnGUI () (at Assets/PostProce
 UnityEngine.PostProcessing.EyeAdaptationComponent.get_active () (at Assets/PostProcessing/Runtime/Components/EyeAdaptationComponent.cs:37)
 UnityEngine.PostProcessing.PostProcessingBehaviour.OnGUI () (at Assets/PostProcessing/Runtime/PostProcessingBehaviour.cs:305)
 
+2017-10-30 14:49:57.0290 [DEBUG] Scene Fusion version 1.6.0-1
+2017-10-30 14:49:57.1220 [DEBUG] Play mode: True, sync in play mode: False
+2017-10-30 14:52:04.9610 [DEBUG] Play mode: False
+2017-10-30 15:45:12.3380 [DEBUG] Scene Fusion version 1.6.0-1
+2017-10-30 15:46:05.1750 [DEBUG] Scene Fusion version 1.6.0-1
+2017-10-30 15:46:05.2570 [DEBUG] Play mode: True, sync in play mode: False
+2017-10-30 15:46:55.3260 [DEBUG] Play mode: False
+2017-10-30 15:47:14.6220 [DEBUG] Scene Fusion version 1.6.0-1
+2017-10-30 15:47:14.7200 [DEBUG] Play mode: True, sync in play mode: False
+2017-10-30 15:48:24.0660 [ERROR] UnityException: Texture 'Palm_Leaf' is not readable, the texture memory can not be accessed from scripts. You can make the texture readable in the Texture Import Settings.
+UnityEngine.Texture2D.GetPixel (Int32 x, Int32 y) (at C:/buildslave/unity/build/artifacts/generated/common/runtime/TextureBindings.gen.cs:237)
+GunController.Fire () (at Assets/Scripts/Player/GunController.cs:121)
+GunController.Update () (at Assets/Scripts/Player/GunController.cs:88)
+
+2017-10-30 15:50:22.8990 [DEBUG] Play mode: False
+2017-10-30 15:51:55.2670 [DEBUG] Scene Fusion version 1.6.0-1
+2017-10-30 15:51:55.3660 [DEBUG] Play mode: True, sync in play mode: False
+2017-10-30 15:51:57.5690 [DEBUG] Play mode: False
+2017-10-30 15:52:31.3890 [DEBUG] Scene Fusion version 1.6.0-1
+2017-10-30 15:52:31.5980 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEngine.PostProcessing.EyeAdaptationComponent.get_active () (at Assets/PostProcessing/Runtime/Components/EyeAdaptationComponent.cs:37)
+UnityEngine.PostProcessing.PostProcessingBehaviour.OnGUI () (at Assets/PostProcessing/Runtime/PostProcessingBehaviour.cs:305)
+
+2017-10-30 15:52:36.1150 [DEBUG] Scene Fusion version 1.6.0-1
+2017-10-30 15:52:36.2380 [DEBUG] Play mode: True, sync in play mode: False
+2017-10-30 15:54:34.5620 [DEBUG] Play mode: False
+2017-10-30 15:54:43.3560 [DEBUG] Scene Fusion version 1.6.0-1
+2017-10-30 15:54:43.4610 [DEBUG] Play mode: True, sync in play mode: False
+2017-10-30 15:56:24.4920 [DEBUG] Play mode: False
+2017-10-30 16:03:01.2150 [DEBUG] Scene Fusion version 1.6.0-1
+2017-10-30 16:03:01.4530 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEngine.PostProcessing.EyeAdaptationComponent.get_active () (at Assets/PostProcessing/Runtime/Components/EyeAdaptationComponent.cs:37)
+UnityEngine.PostProcessing.PostProcessingBehaviour.OnGUI () (at Assets/PostProcessing/Runtime/PostProcessingBehaviour.cs:305)
+
+2017-10-30 16:11:25.6510 [DEBUG] Scene Fusion version 1.6.0-1
+2017-10-30 16:11:25.7470 [DEBUG] Play mode: True, sync in play mode: False
+2017-10-30 16:12:16.7900 [ERROR] UnityException: Texture 'Palm_Leaf' is not readable, the texture memory can not be accessed from scripts. You can make the texture readable in the Texture Import Settings.
+UnityEngine.Texture2D.GetPixel (Int32 x, Int32 y) (at C:/buildslave/unity/build/artifacts/generated/common/runtime/TextureBindings.gen.cs:237)
+GunController.Fire () (at Assets/Scripts/Player/GunController.cs:121)
+GunController.Update () (at Assets/Scripts/Player/GunController.cs:88)
+
+2017-10-30 16:12:16.9280 [ERROR] UnityException: Texture 'Palm_Leaf' is not readable, the texture memory can not be accessed from scripts. You can make the texture readable in the Texture Import Settings.
+UnityEngine.Texture2D.GetPixel (Int32 x, Int32 y) (at C:/buildslave/unity/build/artifacts/generated/common/runtime/TextureBindings.gen.cs:237)
+GunController.Fire () (at Assets/Scripts/Player/GunController.cs:121)
+GunController.Update () (at Assets/Scripts/Player/GunController.cs:88)
+
+2017-10-30 16:14:04.9530 [DEBUG] Play mode: False
+2017-10-30 16:29:21.1940 [DEBUG] Scene Fusion version 1.6.0-1
+2017-10-30 16:29:21.2670 [DEBUG] Play mode: True, sync in play mode: False
+2017-10-30 16:29:25.6320 [DEBUG] Play mode: False
+2017-10-30 16:42:13.7160 [DEBUG] Scene Fusion version 1.6.0-1
+2017-10-30 16:42:13.7820 [DEBUG] Play mode: True, sync in play mode: False
+2017-10-30 16:42:32.6490 [DEBUG] Play mode: False
+2017-10-30 16:50:18.2830 [DEBUG] Scene Fusion version 1.6.0-1
+2017-10-30 16:51:55.2180 [DEBUG] Scene Fusion version 1.6.0-1
+2017-10-30 16:51:55.3120 [DEBUG] Play mode: True, sync in play mode: False
+2017-10-30 16:51:57.5390 [DEBUG] Play mode: False
+2017-10-30 16:52:54.1400 [DEBUG] Scene Fusion version 1.6.0-1
+2017-10-30 16:52:54.2200 [DEBUG] Play mode: True, sync in play mode: False
+2017-10-30 16:53:04.3340 [DEBUG] Play mode: False
+2017-10-30 16:53:19.0090 [DEBUG] Scene Fusion version 1.6.0-1
