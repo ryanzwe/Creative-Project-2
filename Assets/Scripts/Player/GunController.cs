@@ -22,14 +22,20 @@ public class GunController : MonoBehaviour
         }
     }
 
-    private int clipAmount = 3;// how many clips to have  -- CLIP QTY ZONE
+    public int clipAmount = 3;// how many clips to have  -- CLIP QTY ZONE
 
     public int ClipAmount
     {
         get { return clipAmount; }
         set
         {
+            if (value == 6)
+            {
+                Debug.Log("Max Ammo");
+                return;
+            }
             clipAmount = value;
+            if (CharController.Instance.Cur != this) return; // Don't update the UI on picking up ammo if on a diff gun
             GameController.Instance.ui.ClipCount.text = clipAmount.ToString();
         }
     }
@@ -59,12 +65,12 @@ public class GunController : MonoBehaviour
     {
         audio.Stop();
         reloading = false;
+        Char.UpdateCurrentWeapon(this);// tell the charcontroller that this is the new gun, to update for sprinting
         if (initialized)
         {
             CurrentClip = currentClip; // Used to trigger the properties set function and update UI
             ClipAmount = clipAmount;
         }
-        Char.UpdateCurrentWeapon(this);// tell the charcontroller that this is the new gun, to update for sprinting
     }
     private void Update()
     {// If reloading, do nothing, if out of ammo, reload and exit loop

@@ -23,7 +23,7 @@ public class CharController : MonoBehaviour
 
     //Forces 
     private Rigidbody rb;
-    private float moveSpeed = 2.0f;
+    private float moveSpeed = 6.0f;
     private float jumpSpeed = 2f;
 
     private bool sprinting = false;
@@ -127,16 +127,17 @@ public class CharController : MonoBehaviour
                     cur.enabled = true;
                     if (GameController.Instance.CurrentLogCount == 2)
                     {
-                        CharController.Instance.weaponHandlerAnim.SetTrigger("GunUp");
-                        CharController.Instance.LogHandlerAnim.SetTrigger("LogsDown");
+                       weaponHandlerAnim.SetTrigger("GunUp");
+                       LogHandlerAnim.SetTrigger("LogsDown");
                     }
                     GameController.Instance.LogsRemaining -= GameController.Instance.CurrentLogCount;
+                    GameController.Instance.PlaceLog(GameController.Instance.CurrentLogCount);
                     GameController.Instance.CurrentLogCount = 0;
-                    //TO:Do - Log placement 
-
-
-
-
+                } 
+                else if (hit.collider.CompareTag("AmmoPickup"))
+                {
+                    int r = Random.Range(0, WeaponManager.Instance.transform.childCount);
+                    WeaponManager.Instance.transform.GetChild(r).GetComponent<GunController>().ClipAmount++;
                 }
             }
         }

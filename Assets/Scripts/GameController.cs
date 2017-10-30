@@ -14,19 +14,7 @@ public class GameController : MonoBehaviour
     public GameObject[] HitPSPooled;
     [Header("Logs")]
     public GameObject Log;
-
-    private int currentLogCount;
-    private int logsRemaining = 20;
-    public int LogsRemaining
-    {
-        get { return logsRemaining; }
-        set
-        {
-            logsRemaining = value;
-            ui.StickRemaining.text = value.ToString();
-        }
-    }
-
+    private int currentLogCount;// Logs being held on player
     public int CurrentLogCount // Update UI, Trigger 
     {
         get { return currentLogCount; }
@@ -41,18 +29,28 @@ public class GameController : MonoBehaviour
             }
         }
     }
-
-    
-
+    private int logsRemaining = 20; // Logs required to finish the building 
+    public int LogsRemaining
+    {
+        get { return logsRemaining; }
+        set
+        {
+            logsRemaining = value;
+            ui.StickRemaining.text = value.ToString();
+        }
+    }
+    public int LogsPlaced;// Logs placed on the pile 
+    public Material[] LogMats = new Material[2];
+    public Renderer[] LogChilds = new Renderer[20];
     [Header("Extra")]
     public UIManager ui;
     [Header("Timers")]
     public float GameTime;
-
     public delegate void SecondEvent();
-
     public event SecondEvent OnSecondChange;
-    void Awake()
+
+
+   private  void Awake()
     {// Setting the instance and the parent to hold the pooled objects
         instance = this;
         GameObject ImpactPsHolder = new GameObject("ImpactPsHolder");
@@ -83,6 +81,16 @@ public class GameController : MonoBehaviour
         CharController.Instance.Cur.enabled = false;
         CharController.Instance.weaponHandlerAnim.SetTrigger("GunDown");// Put the players gun down, and enable logs animator
         CharController.Instance.LogHandlerAnim.SetTrigger("LogsUp");
+    }
+
+    public void PlaceLog(int amount)
+    {
+        Debug.Log("Entered");
+        for (int i = LogsPlaced; i < LogsPlaced + amount; i++)
+        {
+            LogChilds[i].material = LogMats[1];
+        }
+        LogsPlaced += amount;
     }
 }
 

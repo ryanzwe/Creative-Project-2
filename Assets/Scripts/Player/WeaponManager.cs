@@ -24,7 +24,7 @@ public class WeaponManager : MonoBehaviour
         if(GameController.Instance.CurrentLogCount != 2)
         Switching();
     }
-    void EquipWeapon()
+    private void EquipWeapon()
     {
         for (int i = 0; i < transform.childCount; i++)
         {

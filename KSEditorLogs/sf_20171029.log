@@ -24674,3 +24674,9 @@ UnityEngine.PostProcessing.PostProcessingBehaviour.OnGUI () (at Assets/PostProce
 UnityEngine.PostProcessing.EyeAdaptationComponent.get_active () (at Assets/PostProcessing/Runtime/Components/EyeAdaptationComponent.cs:37)
 UnityEngine.PostProcessing.PostProcessingBehaviour.OnGUI () (at Assets/PostProcessing/Runtime/PostProcessingBehaviour.cs:305)
 
+2017-10-29 23:05:15.6310 [DEBUG] Scene Fusion version 1.6.0-1
+2017-10-29 23:59:10.2870 [DEBUG] Scene Fusion version 1.6.0-1
+2017-10-29 23:59:10.4790 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEngine.PostProcessing.EyeAdaptationComponent.get_active () (at Assets/PostProcessing/Runtime/Components/EyeAdaptationComponent.cs:37)
+UnityEngine.PostProcessing.PostProcessingBehaviour.OnGUI () (at Assets/PostProcessing/Runtime/PostProcessingBehaviour.cs:305)
+
