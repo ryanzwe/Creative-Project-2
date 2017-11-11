@@ -8,6 +8,7 @@ public class WeaponManager : MonoBehaviour
     public int wepIndex;
     private Animator anim;
     private static WeaponManager instance;
+    public bool[] UnlockedWeps;
 
     public static WeaponManager Instance
     {
@@ -18,11 +19,15 @@ public class WeaponManager : MonoBehaviour
         instance = this;
         EquipWeapon();
         anim = GetComponent<Animator>();
+        UnlockedWeps = new bool[3]
+        {// Pistol  AR   Shotty 
+            true, false, false
+        };
     }
     private void Update()
     {
-        if(GameController.Instance.CurrentLogCount != 2)
-        Switching();
+        if (GameController.Instance.CurrentLogCount != 2)
+            Switching();
     }
     private void EquipWeapon()
     {
@@ -41,27 +46,27 @@ public class WeaponManager : MonoBehaviour
 
         if (Input.GetAxis("Mouse ScrollWheel") > 0f)
         {     // If scrolling outside the array then loop back to the start              
-            if (wepIndex >= transform.childCount - 1)
+            if (wepIndex >= transform.childCount - 1 && UnlockedWeps[0])
                 wepIndex = 0;
-            else // If not then incremednt to the next wep
+            else if (wepIndex < transform.childCount && UnlockedWeps[wepIndex + 1]) // If not then incremednt to the next wep
                 wepIndex++;
         }
         else if (Input.GetAxis("Mouse ScrollWheel") < 0f)
         { // If going lower than the array, then loop back to the end, -1 to prevent the array from going out of range
-            if (wepIndex <= 0)
+            if (wepIndex <= 0 && UnlockedWeps[transform.childCount - 1])
                 wepIndex = transform.childCount - 1;
-            else
+            else if (wepIndex > 0 && UnlockedWeps[wepIndex - 1])
                 wepIndex--;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             wepIndex = 0;
         }// bug: change transform.chilcount to if bought
-        else if (Input.GetKeyDown(KeyCode.Alpha2) && transform.childCount >= 2)
+        else if (Input.GetKeyDown(KeyCode.Alpha2) && UnlockedWeps[1])
         {
             wepIndex = 1;
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha3) && transform.childCount >= 3)
+        else if (Input.GetKeyDown(KeyCode.Alpha3) && UnlockedWeps[2])
         {
             wepIndex = 2;
         }

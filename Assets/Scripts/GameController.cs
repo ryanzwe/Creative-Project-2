@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
-
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class GameController : MonoBehaviour
     public GameObject[] HitPSPooled;
     [Header("Logs")]
     public GameObject Log;
+
+    public Text DeathTExt;
+    public GameObject[] logUI;
     private int currentLogCount;// Logs being held on player
     public int CurrentLogCount // Update UI, Trigger 
     {
@@ -37,6 +41,8 @@ public class GameController : MonoBehaviour
         {
             logsRemaining = value;
             ui.StickRemaining.text = value.ToString();
+            if(value %2 == 0)
+            UpdateStickUI();
         }
     }
     public int LogsPlaced;// Logs placed on the pile 
@@ -60,8 +66,9 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public GameObject[] Lambo;
 
-   private  void Awake()
+    private void Awake()
     {// Setting the instance and the parent to hold the pooled objects
         instance = this;
         GameObject ImpactPsHolder = new GameObject("ImpactPsHolder");
@@ -78,13 +85,18 @@ public class GameController : MonoBehaviour
         }
         GameTime = 0;
     }
-
+    private int totalSeconds;
     private void Update()
     {
         if (Time.time > GameTime + 1)
         {
             GameTime = Time.time;
-            if (OnSecondChange != null) OnSecondChange();
+            totalSeconds++;
+            if (totalSeconds % 5 == 0) EnemyPooling.Instance.BaseZombiesPerMinute++;
+            if (OnSecondChange != null)
+            {
+                OnSecondChange();
+            }
         }
     }
     private void UpdateStickAnimations()
@@ -94,6 +106,10 @@ public class GameController : MonoBehaviour
         CharController.Instance.LogHandlerAnim.SetTrigger("LogsUp");
     }
 
+    private void UpdateStickUI()
+    {
+        logUI[LogsPlaced / 2].SetActive(true);
+    }
     public void PlaceLog(int amount)
     {
         Debug.Log("Entered");
@@ -104,6 +120,28 @@ public class GameController : MonoBehaviour
 
         }
         LogsPlaced += amount;
+    }
+    public void WinGame()
+    {
+        Lambo[0].GetComponent<Animator>().enabled = true;
+        Lambo[1].SetActive(true);
+        PlayerController.Instance.gameObject.SetActive(false);
+    }
+
+    public void LoseGame()
+    {
+        DeathTExt.enabled = true;
+        Invoke("Restart3s",3);
+        CharController.ToggleCursour(false);
+
+    }
+
+    private void Restart3s()
+    {
+        Destroy(PlayerController.Instance);
+        Destroy(CharController.Instance);
+        Destroy(Instance);
+        SceneManager.LoadScene("MainMenuu");
     }
 }
 

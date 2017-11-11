@@ -34,7 +34,7 @@ public class ColourPulse : MonoBehaviour
             if (t < 0 || t > 1)
             {
                 i = !i;
-                Debug.Log("Inverted");
+                //Debug.Log("Inverted");
 
             }
             t += i ? 1 * Time.deltaTime : -1 * Time.deltaTime;

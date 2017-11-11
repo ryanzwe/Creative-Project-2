@@ -23,7 +23,7 @@ public class CharController : MonoBehaviour
 
     //Forces 
     private Rigidbody rb;
-    private float moveSpeed = 6.0f;
+    private float moveSpeed = 3.0f;
     private float jumpSpeed = 2f;
 
     private bool sprinting = false;
@@ -113,11 +113,7 @@ public class CharController : MonoBehaviour
             if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, PickupDistance))
             {
                 if (hit.collider.CompareTag("Log") && GameController.Instance.CurrentLogCount < 2)
-                {// Make the log fly towards the player 
-                    //Vector3 dir = new Vector3(transform.position.x - hit.transform.position.x, transform.position.y - hit.transform.position.y + 2f, transform.position.z - hit.transform.position.z);
-                    //Physics.IgnoreCollision(hit.collider, GetComponent<Collider>());// Disable collision so it doesn't push the player 
-                    //hit.collider.GetComponent<Rigidbody>().AddForce(dir * 2f, ForceMode.Impulse);// Adding the force towards the player 
-                    //Destroy(hit.collider.gameObject, 1f);// destroying the log after as econd 
+                {
                     Destroy(hit.collider.gameObject);
                     GameController.Instance.CurrentLogCount++;// adding one to the playes log count, for game completion
                     SoundHandler.Instance.PlaySound(SoundHandler.Sounds.Pickup_Extra);// as this is an extra item, play this sound 
@@ -126,13 +122,17 @@ public class CharController : MonoBehaviour
                 { // taking away the players logs and placing them onto the log pile
                     if (GameController.Instance.LogsRemaining == 0 || GameController.Instance.CurrentLogCount == 0)
                     {
-                        Debug.Log("Games Finished Already or no logs");
+                        Debug.Log("No logs");
+                        if (GameController.Instance.LogsRemaining == 0)
+                        {
+                            GameController.Instance.WinGame();
+                        }
                         return;
                     }
                     if (GameController.Instance.CurrentLogCount == 2)
                     {// Play  character animation sequence
-                       weaponHandlerAnim.SetTrigger("GunUp");
-                       LogHandlerAnim.SetTrigger("LogsDown");
+                        weaponHandlerAnim.SetTrigger("GunUp");
+                        LogHandlerAnim.SetTrigger("LogsDown");
                         if (GameController.Instance.LogsRemaining == 1)
                             GameController.Instance.CurrentLogCount = 1; // Prevents out of range error 
                     }
@@ -142,11 +142,37 @@ public class CharController : MonoBehaviour
                     GameController.Instance.PlaceLog(GameController.Instance.CurrentLogCount);
                     GameController.Instance.CurrentLogCount = 0;// increment the placed logs, reset held logs, and play sound
                     SoundHandler.Instance.PlaySound(SoundHandler.Sounds.Objective_Complete);
-                } 
+                }
                 else if (hit.collider.CompareTag("AmmoPickup"))
                 {
                     int r = Random.Range(0, WeaponManager.Instance.transform.childCount);
                     WeaponManager.Instance.transform.GetChild(r).GetComponent<GunController>().ClipAmount++;
+                    SoundHandler.Instance.PlaySound(SoundHandler.Sounds.Pickup_Extra);
+                    Destroy(hit.collider.gameObject);
+                }
+                else if (hit.collider.CompareTag("AssaultRiflePickup"))
+                {// If the AR has already been picked up, grab ammo instead 
+                    if (WeaponManager.Instance.UnlockedWeps[1] == true)
+                    {
+                        WeaponManager.Instance.transform.GetChild(1).GetComponent<GunController>().ClipAmount++;
+                    }
+                    WeaponManager.Instance.UnlockedWeps[1] = true;
+                    SoundHandler.Instance.PlaySound(SoundHandler.Sounds.Pickup_Extra);
+                    Destroy(hit.collider.gameObject);
+                }
+                else if (hit.collider.CompareTag("ShotgunPickup"))
+                { // If the shotgun has already been picked up, grab ammo instead 
+                    if (WeaponManager.Instance.UnlockedWeps[2] == true)
+                    {
+                        WeaponManager.Instance.transform.GetChild(2).GetComponent<GunController>().ClipAmount++;
+                    }
+                    WeaponManager.Instance.UnlockedWeps[2] = true;
+                    SoundHandler.Instance.PlaySound(SoundHandler.Sounds.Pickup_Extra);
+                    Destroy(hit.collider.gameObject);
+                }
+                else if (hit.collider.CompareTag("PistolPickup"))
+                {
+                    WeaponManager.Instance.transform.GetChild(0).GetComponent<GunController>().ClipAmount++;
                     SoundHandler.Instance.PlaySound(SoundHandler.Sounds.Pickup_Extra);
                     Destroy(hit.collider.gameObject);
                 }

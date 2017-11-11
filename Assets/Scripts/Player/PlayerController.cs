@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class PlayerController : MonoBehaviour
         set
         {
             health = value;
-            //GameController.Instance.ui.Health.value = health;
+            if (health <= 0) GameController.Instance.LoseGame();
         }
     }
     public float TimeToHealToFullHealth = 60f;
@@ -50,4 +51,5 @@ public class PlayerController : MonoBehaviour
             if (health > 100) health = 100;
         }
     }
+
 }

@@ -57,7 +57,7 @@ public class EnemyPooling : MonoBehaviour
                // enemies[i].transform.position = pos;
                 enemies[i].transform.rotation = rot;
                 enemies[i].GetComponent<EnemyController>().health = 100;
-                return enemies[i];
+                return enemies[i]; // Exit the loops once this has been spawned
             }
         }
         return null; // Can't create the enemies;

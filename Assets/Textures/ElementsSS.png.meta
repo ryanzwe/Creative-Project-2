@@ -1,14 +1,14 @@
 fileFormatVersion: 2
 guid: 02a7d20954cdd404287e419ee3524d41
-timeCreated: 1509346505
+timeCreated: 1509439040
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: TheIsland
+    21300000: Island
     21300002: LogS1
     21300004: ElementsSS_2
     21300006: Bs1
-    21300008: ElementsSS_4
+    21300008: Circle
     21300010: Bs2
     21300012: HpOutline
     21300014: HpFill
@@ -20,6 +20,7 @@ TextureImporter:
     21300026: HpGreen
     21300028: ElementsSS_1
     21300030: Mat
+    21300032: The
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -115,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TheIsland
+      name: Island
       rect:
         serializedVersion: 2
-        x: 0
-        y: 812
-        width: 643
-        height: 212
+        x: 1
+        y: 814
+        width: 639
+        height: 124
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -287,9 +288,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 151
-        y: 476
-        width: 328
-        height: 34
+        y: 472
+        width: 327
+        height: 39
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -319,7 +320,35 @@ TextureImporter:
         width: 515
         height: 206
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: The
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 945
+        width: 251
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Circle
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 937
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

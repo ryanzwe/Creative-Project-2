@@ -10,7 +10,6 @@ public class EnemyAttackTimer : MonoBehaviour
     private float attackCounter;
     private float timeTillAttack;
     private float DecrementAmt;
-
     private void Start()
     {
         attackCounter = timeTillAttack = AttackSpeed;

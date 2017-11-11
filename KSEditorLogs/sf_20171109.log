@@ -1,0 +1,636 @@
+2017-11-09 12:26:44.3498 [DEBUG] Scene Fusion version 1.6.0-1
+2017-11-09 12:39:00.1154 [DEBUG] Scene Fusion version 1.6.0-1
+2017-11-09 12:39:08.0325 [DEBUG] Scene Fusion version 1.6.0-1
+2017-11-09 12:39:10.7927 [DEBUG] Scene Fusion version 1.6.0-1
+2017-11-09 12:56:34.2515 [DEBUG] Scene Fusion version 1.6.0-1
+2017-11-09 12:56:34.5066 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEngine.PostProcessing.EyeAdaptationComponent.get_active () (at Assets/PostProcessing/Runtime/Components/EyeAdaptationComponent.cs:37)
+UnityEngine.PostProcessing.PostProcessingBehaviour.OnGUI () (at Assets/PostProcessing/Runtime/PostProcessingBehaviour.cs:305)
+
+2017-11-09 12:56:35.4990 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEngine.PostProcessing.EyeAdaptationComponent.get_active () (at Assets/PostProcessing/Runtime/Components/EyeAdaptationComponent.cs:37)
+UnityEngine.PostProcessing.PostProcessingBehaviour.OnGUI () (at Assets/PostProcessing/Runtime/PostProcessingBehaviour.cs:305)
+
+2017-11-09 12:56:35.8327 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEngine.PostProcessing.EyeAdaptationComponent.get_active () (at Assets/PostProcessing/Runtime/Components/EyeAdaptationComponent.cs:37)
+UnityEngine.PostProcessing.PostProcessingBehaviour.OnGUI () (at Assets/PostProcessing/Runtime/PostProcessingBehaviour.cs:305)
+
+2017-11-09 12:56:43.2459 [DEBUG] Scene Fusion version 1.6.0-1
+2017-11-09 12:56:43.4495 [DEBUG] Play mode: True, sync in play mode: False
+2017-11-09 12:58:31.9280 [DEBUG] Play mode: False
+2017-11-09 13:07:26.9806 [DEBUG] Scene Fusion version 1.6.0-1
+2017-11-09 13:07:27.1169 [DEBUG] Play mode: True, sync in play mode: False
+2017-11-09 13:07:35.3230 [DEBUG] Play mode: False
+2017-11-09 13:07:55.1208 [DEBUG] Scene Fusion version 1.6.0-1
+2017-11-09 13:07:55.1714 [DEBUG] Play mode: True, sync in play mode: False
+2017-11-09 13:08:08.1693 [DEBUG] Play mode: False
+2017-11-09 13:08:22.5948 [DEBUG] Scene Fusion version 1.6.0-1
+2017-11-09 13:08:22.7642 [DEBUG] Play mode: True, sync in play mode: False
+2017-11-09 13:08:45.5564 [DEBUG] Play mode: False
+2017-11-09 13:09:22.1114 [DEBUG] Scene Fusion version 1.6.0-1
+2017-11-09 13:09:22.3451 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEngine.PostProcessing.EyeAdaptationComponent.get_active () (at Assets/PostProcessing/Runtime/Components/EyeAdaptationComponent.cs:37)
+UnityEngine.PostProcessing.PostProcessingBehaviour.OnGUI () (at Assets/PostProcessing/Runtime/PostProcessingBehaviour.cs:305)
+
+2017-11-09 13:09:22.9137 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEngine.PostProcessing.EyeAdaptationComponent.get_active () (at Assets/PostProcessing/Runtime/Components/EyeAdaptationComponent.cs:37)
+UnityEngine.PostProcessing.PostProcessingBehaviour.OnGUI () (at Assets/PostProcessing/Runtime/PostProcessingBehaviour.cs:305)
+
+2017-11-09 13:09:23.4266 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEngine.PostProcessing.EyeAdaptationComponent.get_active () (at Assets/PostProcessing/Runtime/Components/EyeAdaptationComponent.cs:37)
+UnityEngine.PostProcessing.PostProcessingBehaviour.OnGUI () (at Assets/PostProcessing/Runtime/PostProcessingBehaviour.cs:305)
+
+2017-11-09 13:09:27.1843 [DEBUG] Scene Fusion version 1.6.0-1
+2017-11-09 13:09:27.3191 [DEBUG] Play mode: True, sync in play mode: False
+2017-11-09 13:09:36.4945 [DEBUG] Play mode: False
+2017-11-09 13:09:51.1183 [DEBUG] Scene Fusion version 1.6.0-1
+2017-11-09 13:09:51.2607 [DEBUG] Play mode: True, sync in play mode: False
+2017-11-09 13:09:55.4783 [DEBUG] Play mode: False
+2017-11-09 13:10:32.3559 [DEBUG] Scene Fusion version 1.6.0-1
+2017-11-09 13:10:32.4867 [DEBUG] Play mode: True, sync in play mode: False
+2017-11-09 13:10:37.9633 [DEBUG] Play mode: False
+2017-11-09 13:11:26.6641 [DEBUG] Scene Fusion version 1.6.0-1
+2017-11-09 13:11:36.4790 [DEBUG] Scene Fusion version 1.6.0-1
+2017-11-09 13:11:36.6153 [DEBUG] Play mode: True, sync in play mode: False
+2017-11-09 13:11:45.3743 [DEBUG] Play mode: False
+2017-11-09 13:12:33.5796 [DEBUG] Scene Fusion version 1.6.0-1
+2017-11-09 13:12:33.7255 [DEBUG] Play mode: True, sync in play mode: False
+2017-11-09 13:12:38.8072 [DEBUG] Play mode: False
+2017-11-09 13:13:44.6318 [DEBUG] Scene Fusion version 1.6.0-1
+2017-11-09 13:13:44.7516 [DEBUG] Play mode: True, sync in play mode: False
+2017-11-09 13:14:07.0114 [DEBUG] Play mode: False
+2017-11-09 13:14:22.4547 [DEBUG] Scene Fusion version 1.6.0-1
+2017-11-09 13:14:22.6372 [DEBUG] Play mode: True, sync in play mode: False
+2017-11-09 13:14:40.7563 [DEBUG] Play mode: False
+2017-11-09 13:16:57.6157 [DEBUG] Scene Fusion version 1.6.0-1
+2017-11-09 13:16:57.9090 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEngine.PostProcessing.EyeAdaptationComponent.get_active () (at Assets/PostProcessing/Runtime/Components/EyeAdaptationComponent.cs:37)
+UnityEngine.PostProcessing.PostProcessingBehaviour.OnGUI () (at Assets/PostProcessing/Runtime/PostProcessingBehaviour.cs:305)
+
+2017-11-09 13:17:01.7187 [DEBUG] Scene Fusion version 1.6.0-1
+2017-11-09 13:17:01.8440 [DEBUG] Play mode: True, sync in play mode: False
+2017-11-09 13:17:04.0041 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:17:04.9683 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:17:08.0993 [DEBUG] Play mode: False
+2017-11-09 13:17:56.5320 [DEBUG] Scene Fusion version 1.6.0-1
+2017-11-09 13:17:56.6533 [DEBUG] Play mode: True, sync in play mode: False
+2017-11-09 13:17:58.0714 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:17:59.1688 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:17:59.6022 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:17:59.9862 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:18:02.4180 [DEBUG] Play mode: False
+2017-11-09 13:18:18.4940 [DEBUG] Scene Fusion version 1.6.0-1
+2017-11-09 13:18:18.6168 [DEBUG] Play mode: True, sync in play mode: False
+2017-11-09 13:18:18.9835 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:18:19.6537 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:18:19.8140 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:18:19.9869 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:18:20.1133 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:18:20.4683 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:18:39.0863 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:18:39.1239 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:18:39.1820 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:18:39.2376 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:18:39.3028 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:18:39.3378 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:18:39.7645 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:18:39.7971 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:18:39.8332 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:18:39.8748 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:18:40.1491 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:18:40.1857 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:18:40.2328 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:18:40.3010 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:18:40.4093 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:18:40.7952 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:18:40.8468 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:18:40.8930 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:18:40.9411 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:18:41.3000 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:18:41.3542 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:18:41.3968 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:18:41.4449 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:18:43.2582 [DEBUG] Play mode: False
+2017-11-09 13:27:28.3214 [DEBUG] Scene Fusion version 1.6.0-1
+2017-11-09 13:28:25.1787 [DEBUG] Scene Fusion version 1.6.0-1
+2017-11-09 13:40:21.0334 [DEBUG] Scene Fusion version 1.6.0-1
+2017-11-09 13:40:21.2430 [DEBUG] Play mode: True, sync in play mode: False
+2017-11-09 13:41:52.4729 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:42:12.6654 [DEBUG] Play mode: False
+2017-11-09 13:42:18.0061 [DEBUG] Scene Fusion version 1.6.0-1
+2017-11-09 13:42:22.5690 [DEBUG] Scene Fusion version 1.6.0-1
+2017-11-09 13:42:22.7140 [DEBUG] Play mode: True, sync in play mode: False
+2017-11-09 13:42:26.8874 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:55)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:42:32.5076 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:55)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:42:32.7327 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:55)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:42:33.0590 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:55)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:42:33.1342 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:55)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:42:35.5723 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:55)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:42:35.7764 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:55)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:42:35.8285 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:55)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:42:41.6386 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:55)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:42:41.9820 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:55)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:42:44.3263 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:55)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:42:44.5213 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:55)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:42:44.7304 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:55)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:42:44.9059 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:55)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:42:44.9997 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:55)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:42:46.8231 [DEBUG] Play mode: False
+2017-11-09 13:46:56.6394 [DEBUG] Scene Fusion version 1.6.0-1
+2017-11-09 13:46:56.8580 [DEBUG] Play mode: True, sync in play mode: False
+2017-11-09 13:47:10.3487 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:55)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:48:08.0360 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:55)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:48:19.6300 [DEBUG] Scene Fusion version 1.6.0-1
+2017-11-09 13:48:19.9840 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEngine.PostProcessing.EyeAdaptationComponent.get_active () (at Assets/PostProcessing/Runtime/Components/EyeAdaptationComponent.cs:37)
+UnityEngine.PostProcessing.PostProcessingBehaviour.OnGUI () (at Assets/PostProcessing/Runtime/PostProcessingBehaviour.cs:305)
+
+2017-11-09 13:48:20.4502 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEngine.PostProcessing.EyeAdaptationComponent.get_active () (at Assets/PostProcessing/Runtime/Components/EyeAdaptationComponent.cs:37)
+UnityEngine.PostProcessing.PostProcessingBehaviour.OnGUI () (at Assets/PostProcessing/Runtime/PostProcessingBehaviour.cs:305)
+
+2017-11-09 13:48:20.7288 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEngine.PostProcessing.EyeAdaptationComponent.get_active () (at Assets/PostProcessing/Runtime/Components/EyeAdaptationComponent.cs:37)
+UnityEngine.PostProcessing.PostProcessingBehaviour.OnGUI () (at Assets/PostProcessing/Runtime/PostProcessingBehaviour.cs:305)
+
+2017-11-09 13:48:20.8395 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEngine.PostProcessing.EyeAdaptationComponent.get_active () (at Assets/PostProcessing/Runtime/Components/EyeAdaptationComponent.cs:37)
+UnityEngine.PostProcessing.PostProcessingBehaviour.OnGUI () (at Assets/PostProcessing/Runtime/PostProcessingBehaviour.cs:305)
+
+2017-11-09 13:48:21.1959 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+CharController.Movement () (at Assets/Scripts/Player/CharController.cs:101)
+CharController.FixedUpdate () (at Assets/Scripts/Player/CharController.cs:76)
+
+2017-11-09 13:48:21.2009 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.2014 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.2019 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.2024 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.2024 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.2029 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.2029 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.2034 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.2039 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:28)
+
+2017-11-09 13:48:21.2039 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.2044 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.2049 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.2049 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.2069 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.2074 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.2074 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.2074 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.2079 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.2084 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.2084 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.2089 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.2094 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+PlayerController.Update () (at Assets/Scripts/Player/PlayerController.cs:41)
+
+2017-11-09 13:48:21.2099 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.2099 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.2104 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.2104 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.2109 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.2109 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.2114 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.2119 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.2124 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.2180 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.3548 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+CharController.Movement () (at Assets/Scripts/Player/CharController.cs:101)
+CharController.FixedUpdate () (at Assets/Scripts/Player/CharController.cs:76)
+
+2017-11-09 13:48:21.3568 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+CharController.Movement () (at Assets/Scripts/Player/CharController.cs:101)
+CharController.FixedUpdate () (at Assets/Scripts/Player/CharController.cs:76)
+
+2017-11-09 13:48:21.3578 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+CharController.Movement () (at Assets/Scripts/Player/CharController.cs:101)
+CharController.FixedUpdate () (at Assets/Scripts/Player/CharController.cs:76)
+
+2017-11-09 13:48:21.3593 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+CharController.Movement () (at Assets/Scripts/Player/CharController.cs:101)
+CharController.FixedUpdate () (at Assets/Scripts/Player/CharController.cs:76)
+
+2017-11-09 13:48:21.3603 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+CharController.Movement () (at Assets/Scripts/Player/CharController.cs:101)
+CharController.FixedUpdate () (at Assets/Scripts/Player/CharController.cs:76)
+
+2017-11-09 13:48:21.3613 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+CharController.Movement () (at Assets/Scripts/Player/CharController.cs:101)
+CharController.FixedUpdate () (at Assets/Scripts/Player/CharController.cs:76)
+
+2017-11-09 13:48:21.3618 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+CharController.Movement () (at Assets/Scripts/Player/CharController.cs:101)
+CharController.FixedUpdate () (at Assets/Scripts/Player/CharController.cs:76)
+
+2017-11-09 13:48:21.3633 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+CharController.Movement () (at Assets/Scripts/Player/CharController.cs:101)
+CharController.FixedUpdate () (at Assets/Scripts/Player/CharController.cs:76)
+
+2017-11-09 13:48:21.3648 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.3653 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.3653 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.3658 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.3658 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.3663 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.3663 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.3668 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.3668 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:28)
+
+2017-11-09 13:48:21.3668 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.3673 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.3673 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.3678 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.3678 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.3683 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.3683 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.3683 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.3688 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.3688 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.3693 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.3693 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.3698 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+PlayerController.Update () (at Assets/Scripts/Player/PlayerController.cs:41)
+
+2017-11-09 13:48:21.3698 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.3704 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.3704 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.3708 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.3708 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.3708 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.3713 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.3713 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.3718 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.3769 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+EnemyAI.Update () (at Assets/Scripts/Enemy/EnemyAI.cs:45)
+
+2017-11-09 13:48:21.4636 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+PlayerController.OnDisable () (at Assets/Scripts/Player/PlayerController.cs:31)
+
+2017-11-09 13:48:21.7875 [DEBUG] Play mode: False
+2017-11-09 13:48:29.1764 [DEBUG] Scene Fusion version 1.6.0-1
+2017-11-09 13:48:29.3203 [DEBUG] Play mode: True, sync in play mode: False
+2017-11-09 13:48:32.2854 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:48:35.3276 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:48:35.5336 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:48:35.7247 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:48:35.8976 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:48:35.9458 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:48:35.9964 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:48:36.0447 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:48:36.4247 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:48:36.4669 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:48:36.5069 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:48:37.9667 [DEBUG] Play mode: False
+2017-11-09 13:48:57.4484 [DEBUG] Scene Fusion version 1.6.0-1
+2017-11-09 13:48:57.6564 [DEBUG] Play mode: True, sync in play mode: False
+2017-11-09 13:49:37.6277 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 13:50:17.8458 [DEBUG] Play mode: False
+2017-11-09 14:58:07.6818 [DEBUG] Scene Fusion version 1.6.0-1
+2017-11-09 14:58:14.1216 [DEBUG] Scene Fusion version 1.6.0-1
+2017-11-09 15:01:57.3036 [DEBUG] Scene Fusion version 1.6.0-1
+2017-11-09 15:01:57.4601 [DEBUG] Play mode: True, sync in play mode: False
+2017-11-09 15:02:01.3519 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 15:02:03.1897 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 15:02:03.4790 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 15:02:03.6243 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 15:02:03.6629 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 15:02:03.7136 [ERROR] IndexOutOfRangeException: Array index is out of range.
+WeaponManager.Switching () (at Assets/Scripts/Player/WeaponManager.cs:57)
+WeaponManager.Update () (at Assets/Scripts/Player/WeaponManager.cs:29)
+
+2017-11-09 15:02:07.2678 [DEBUG] Play mode: False
+2017-11-09 15:02:45.6700 [DEBUG] Scene Fusion version 1.6.0-1
+2017-11-09 15:04:19.0261 [DEBUG] Scene Fusion version 1.6.0-1
+2017-11-09 15:04:27.6870 [DEBUG] Scene Fusion version 1.6.0-1

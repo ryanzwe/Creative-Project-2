@@ -13,10 +13,10 @@ public class EnemyAttack : State<EnemyAI>
     public GameObject target;
     private NavMeshAgent navAgent;
     private EnemyAttackTimer enemyTimers;
-    public float attackRange = 5.5f;
+    public float attackRange = 2.5f;
     public float AttackDamage = 20f;
-    public int AttackSpeedInMS = 1300;
     private bool preparingAttack;
+    private EnemyAI Owner;
 
     public EnemyAttack(GameObject ownerGB, NavMeshAgent navAgent, EnemyAttackTimer enemyTimers, GameObject target)// When constructing this state, set the instance to this if there has already been one created
     {
@@ -43,6 +43,7 @@ public class EnemyAttack : State<EnemyAI>
     public override void EnterState(EnemyAI Owner)
     {
        // Debug.Log("Entering EnemyAttack");
+        this.Owner = Owner;
 
     }
 
@@ -86,6 +87,8 @@ public class EnemyAttack : State<EnemyAI>
     {
      //   Debug.Log("Hit!");
         PlayerController.Instance.Health -= AttackDamage;
+        Owner.GetComponent<Animator>().SetTrigger("Attack");
+        
     }
 }
 

@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 26f6aaae87ea4804dab737597f450e1a
+timeCreated: 1509367817
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Roundy Rainbows
+  fontNames:
+  - Roundy Rainbows
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
