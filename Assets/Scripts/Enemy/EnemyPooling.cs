@@ -10,7 +10,7 @@ public class EnemyPooling : MonoBehaviour
     public int EnemyAmount;
     public int ZombiesCreated = 0;
 
-    private GameObject[] enemies;
+    public GameObject[] enemies;
 
     private Vector3[] SpawnPositions;
 

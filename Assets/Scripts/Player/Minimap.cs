@@ -9,7 +9,6 @@ public class Minimap : MonoBehaviour
     void LateUpdate()
     {
         transform.position = Vector3.Slerp(transform.position,new Vector3(targ.position.x,transform.position.y,targ.position.z),Time.time * DampSpeed);
-        Quaternion rot = 
         transform.rotation = Quaternion.Slerp(Quaternion.identity, Quaternion.Euler(90, targ.rotation.eulerAngles.y, 0),Time.time * DampSpeed);
     }
 }

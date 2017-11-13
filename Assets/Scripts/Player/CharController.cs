@@ -24,7 +24,7 @@ public class CharController : MonoBehaviour
     //Forces 
     private Rigidbody rb;
     private float moveSpeed = 3.0f;
-    private float jumpSpeed = 2f;
+    //private float jumpSpeed = 2f;
 
     private bool sprinting = false;
     // Extra
@@ -162,6 +162,7 @@ public class CharController : MonoBehaviour
                 }
                 else if (hit.collider.CompareTag("ShotgunPickup"))
                 { // If the shotgun has already been picked up, grab ammo instead 
+                    Debug.Log("S");
                     if (WeaponManager.Instance.UnlockedWeps[2] == true)
                     {
                         WeaponManager.Instance.transform.GetChild(2).GetComponent<GunController>().ClipAmount++;

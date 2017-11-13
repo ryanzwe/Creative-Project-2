@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -16,7 +17,7 @@ public class GameController : MonoBehaviour
     [Header("Logs")]
     public GameObject Log;
 
-    public Text DeathTExt;
+
     public GameObject[] logUI;
     private int currentLogCount;// Logs being held on player
     public int CurrentLogCount // Update UI, Trigger 
@@ -41,8 +42,8 @@ public class GameController : MonoBehaviour
         {
             logsRemaining = value;
             ui.StickRemaining.text = value.ToString();
-            if(value %2 == 0)
-            UpdateStickUI();
+            if (value % 2 == 0)
+                UpdateStickUI();
         }
     }
     public int LogsPlaced;// Logs placed on the pile 
@@ -50,6 +51,10 @@ public class GameController : MonoBehaviour
     public Renderer[] LogChilds = new Renderer[20];
     [Header("Extra")]
     public UIManager ui;
+    public GameObject DeathCanvas;
+    public Text ScoreText;
+    public Text HighScoreText;
+    public Text WinOrLoseText;
     [Header("Timers")]
     public float GameTime;
     public delegate void SecondEvent();
@@ -98,6 +103,10 @@ public class GameController : MonoBehaviour
                 OnSecondChange();
             }
         }
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            EndGame();
+        }
     }
     private void UpdateStickAnimations()
     {
@@ -121,27 +130,53 @@ public class GameController : MonoBehaviour
         }
         LogsPlaced += amount;
     }
+    #region GameStates
     public void WinGame()
     {
         Lambo[0].GetComponent<Animator>().enabled = true;
         Lambo[1].SetActive(true);
         PlayerController.Instance.gameObject.SetActive(false);
+        DisableInstances();
     }
 
-    public void LoseGame()
+    public void EndGame()
     {
-        DeathTExt.enabled = true;
-        Invoke("Restart3s",3);
+        // Setting the panel active that holds the texts
+        DeathCanvas.SetActive(true);
+        // Creating and setting up the way to interpolate the numbers
+        AnimateNumber scoreAnim = gameObject.AddComponent<AnimateNumber>();
+        AnimateNumber HighScoreAnim = gameObject.AddComponent<AnimateNumber>();
+        scoreAnim.Setup(ref ScoreText, 0, Score, 1.5f);
+        HighScoreAnim.Setup(ref ScoreText, 0, PlayerPrefs.GetInt("HighScore"), 1.5f);
+        WinOrLoseText.text = PlayerController.Instance.Health > 0 ? "You Win!" : "You Lose!";
+        // Preventing movement and enabling cursour 
         CharController.ToggleCursour(false);
-
+        DisableInstances();
+        for (int i = 0; i < EnemyPooling.Instance.enemies.Length; i++)
+        {
+            EnemyPooling.Instance.enemies[i].GetComponent<EnemyAI>().enabled = false;
+            EnemyPooling.Instance.enemies[i].GetComponent<Animator>().enabled = false;
+            EnemyPooling.Instance.enemies[i].GetComponent<NavMeshAgent>().enabled = false;
+        }
     }
 
-    private void Restart3s()
+    private void DisableInstances()
+    {
+        PlayerController.Instance.enabled = false;
+        CharController.Instance.Cur.enabled = false;
+        CharController.Instance.enabled = false;
+        WeaponManager.Instance.enabled = false;
+        EnemyPooling.Instance.enabled = false;
+    }
+    public void RestartGame()
     {
         Destroy(PlayerController.Instance);
         Destroy(CharController.Instance);
+        Destroy(WeaponManager.Instance);
+        Destroy(EnemyPooling.Instance);
         Destroy(Instance);
         SceneManager.LoadScene("MainMenuu");
     }
+    #endregion
 }
 

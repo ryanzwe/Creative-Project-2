@@ -23,16 +23,16 @@ public class RandomisedEntitySpawner : MonoBehaviour
         levelRenderer = LevelTerrain.GetComponent<Collider>();
         levelBounds = levelRenderer.bounds;
         
-        int a = 1 << 5 | 1 << 4;
+        //int a = 1 << 5 | 1 << 4;
 
-        int b = 187;// 10111011
-        int c = 128;// 10000000 
-        int d = 1 << 7; // same as c
-        int e = 255 >> 7; // = 1 because 10000000 turns to 00000001 as it's shifted 7
-        Debug.Log(e);
-        Debug.Log(c==d);// since the bit in 7 is being pushed to 8, it will be true because 100000 is 128
-        Debug.Log(a); //48 because 00110000
-        Debug.Log(b&c); // 128 because B contains the byte C does 
+        //int b = 187;// 10111011
+        //int c = 128;// 10000000 
+        //int d = 1 << 7; // same as c
+        //int e = 255 >> 7; // = 1 because 100000 turns t00o 00000001 as it's shifted 7
+     //   Debug.Log(e);
+      //  Debug.Log(c==d);// since the bit in 7 is being pushed to 8, it will be true because 100000 is 128
+      //  Debug.Log(a); //48 because 00110000
+      //  Debug.Log(b&c); // 128 because B contains the byte C does 
 
     }
 
