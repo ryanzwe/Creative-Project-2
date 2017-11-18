@@ -19,7 +19,7 @@ public class CharController : MonoBehaviour
     private float yMaxRot = 80;
     private Quaternion charRot;
     private Quaternion camRot;
-    private float mouseSensitivity = 5.0f;
+    public float mouseSensitivity = 5.0f;
 
     //Forces 
     private Rigidbody rb;
@@ -63,6 +63,7 @@ public class CharController : MonoBehaviour
         camRot = cam.transform.localRotation;
         charRot = transform.localRotation;
         ToggleCursour(true);
+        mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity", 5);
     }
 
     // Update is called once per frame
@@ -123,10 +124,6 @@ public class CharController : MonoBehaviour
                     if (GameController.Instance.LogsRemaining == 0 || GameController.Instance.CurrentLogCount == 0)
                     {
                         Debug.Log("No logs");
-                        if (GameController.Instance.LogsRemaining == 0)
-                        {
-                            GameController.Instance.WinGame();
-                        }
                         return;
                     }
                     if (GameController.Instance.CurrentLogCount == 2)
@@ -157,7 +154,8 @@ public class CharController : MonoBehaviour
                         WeaponManager.Instance.transform.GetChild(1).GetComponent<GunController>().ClipAmount++;
                     }
                     WeaponManager.Instance.UnlockedWeps[1] = true;
-                    SoundHandler.Instance.PlaySound(SoundHandler.Sounds.Pickup_Extra);
+                    WeaponManager.Instance.UpdateUnlockedUI(WeaponManager.Instance.GunPanelUI[1]);
+                    SoundHandler.Instance.PlaySound(SoundHandler.Sounds.Pickup_Gun);
                     Destroy(hit.collider.gameObject);
                 }
                 else if (hit.collider.CompareTag("ShotgunPickup"))
@@ -168,7 +166,8 @@ public class CharController : MonoBehaviour
                         WeaponManager.Instance.transform.GetChild(2).GetComponent<GunController>().ClipAmount++;
                     }
                     WeaponManager.Instance.UnlockedWeps[2] = true;
-                    SoundHandler.Instance.PlaySound(SoundHandler.Sounds.Pickup_Extra);
+                    WeaponManager.Instance.UpdateUnlockedUI(WeaponManager.Instance.GunPanelUI[2]);
+                    SoundHandler.Instance.PlaySound(SoundHandler.Sounds.Pickup_Gun);
                     Destroy(hit.collider.gameObject);
                 }
                 else if (hit.collider.CompareTag("PistolPickup"))

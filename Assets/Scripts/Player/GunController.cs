@@ -127,7 +127,7 @@ public class GunController : MonoBehaviour
             }
             else
             {// If an enemy was shot, make them take damage and drop blood 
-                hit.transform.GetComponent<EnemyController>().Damage(Damage);
+                hit.transform.GetComponent<EnemyAI>().Damage(Damage);
                 temp.GetComponent<Renderer>().material.color = new Color(1f, 0f, 0f);
             }
             // Set the position of the pooled ps to where it was hit by the raycast, and set the rotation the direction the normal was facing

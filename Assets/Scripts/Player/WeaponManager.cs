@@ -9,6 +9,7 @@ public class WeaponManager : MonoBehaviour
     private Animator anim;
     private static WeaponManager instance;
     public bool[] UnlockedWeps;
+    public UnityEngine.UI.Image[] GunPanelUI;
 
     public static WeaponManager Instance
     {
@@ -78,5 +79,10 @@ public class WeaponManager : MonoBehaviour
     public void AnimationEventShootfalse()
     {
         anim.SetBool("Shooting", false);
+    }
+    public void UpdateUnlockedUI(UnityEngine.UI.Image UpdateImg)
+    {
+        UpdateImg.color = new Color(255,255,255,255);
+        Debug.Log("SAD");
     }
 }

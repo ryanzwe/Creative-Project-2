@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
         set
         {
             health = value;
-            if (health <= 0) GameController.Instance.EndGame();
+            if (health <= 0) GameController.Instance.EndGame(true);
         }
     }
     public float TimeToHealToFullHealth = 60f;

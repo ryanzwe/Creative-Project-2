@@ -44,6 +44,8 @@ public class GameController : MonoBehaviour
             ui.StickRemaining.text = value.ToString();
             if (value % 2 == 0)
                 UpdateStickUI();
+            if (logsRemaining == 0)
+                WinGame();
         }
     }
     public int LogsPlaced;// Logs placed on the pile 
@@ -55,6 +57,8 @@ public class GameController : MonoBehaviour
     public Text ScoreText;
     public Text HighScoreText;
     public Text WinOrLoseText;
+    public Animator PauseMenu;
+    private bool paused;
     [Header("Timers")]
     public float GameTime;
     public delegate void SecondEvent();
@@ -105,9 +109,35 @@ public class GameController : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.F))
         {
-            EndGame();
+            EndGame(true);
+        }
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (paused)
+            {
+                PanelHandle(false);
+                return;
+            }
+            PanelHandle(true);
         }
     }
+    public void PanelHandle(bool TorF)
+    {
+        if(TorF)
+        {
+            SoundHandler.Instance.InitSliders();
+            PauseMenu.SetTrigger("FlyIn");
+            EndGame(false, false);
+            paused = !paused;
+        } else
+        {
+            PauseMenu.SetTrigger("FlyOut");
+            paused = !paused;
+            EndGame(false, true);
+        }
+    }
+
+    #region StickAnimsPlacing
     private void UpdateStickAnimations()
     {
         CharController.Instance.Cur.enabled = false;
@@ -130,6 +160,7 @@ public class GameController : MonoBehaviour
         }
         LogsPlaced += amount;
     }
+#endregion
     #region GameStates
     public void WinGame()
     {
@@ -137,36 +168,44 @@ public class GameController : MonoBehaviour
         Lambo[1].SetActive(true);
         PlayerController.Instance.gameObject.SetActive(false);
         DisableInstances();
+        EndGame(false);
     }
 
-    public void EndGame()
+    public void EndGame(bool ShowDeathScreen,bool EnableAI = false)
     {
+        if (ShowDeathScreen) SetupDeathCanvas();
+        // Preventing movement and enabling cursour, also disable enemies from moving making the game appear paused 
+        CharController.ToggleCursour(EnableAI);
+        DisableInstances(EnableAI);
+        for (int i = 0; i < EnemyPooling.Instance.enemies.Length; i++)
+        {
+            EnemyPooling.Instance.enemies[i].GetComponent<EnemyAI>().enabled = EnableAI;
+            EnemyPooling.Instance.enemies[i].GetComponent<Animator>().enabled = EnableAI;
+            EnemyPooling.Instance.enemies[i].GetComponent<NavMeshAgent>().enabled = EnableAI;
+        }
+    }
+    public void SetupDeathCanvas()
+    {
+        // Grab the highscore, and see if the current score is higher than it, to set it 
+        int _highscore = PlayerPrefs.GetInt("HighScore", 0);
+        if (score > _highscore) PlayerPrefs.SetInt("HighScore", score);
         // Setting the panel active that holds the texts
         DeathCanvas.SetActive(true);
         // Creating and setting up the way to interpolate the numbers
         AnimateNumber scoreAnim = gameObject.AddComponent<AnimateNumber>();
         AnimateNumber HighScoreAnim = gameObject.AddComponent<AnimateNumber>();
         scoreAnim.Setup(ref ScoreText, 0, Score, 1.5f);
-        HighScoreAnim.Setup(ref ScoreText, 0, PlayerPrefs.GetInt("HighScore"), 1.5f);
+        HighScoreAnim.Setup(ref HighScoreText, 0, _highscore, 1.5f);
         WinOrLoseText.text = PlayerController.Instance.Health > 0 ? "You Win!" : "You Lose!";
-        // Preventing movement and enabling cursour 
-        CharController.ToggleCursour(false);
-        DisableInstances();
-        for (int i = 0; i < EnemyPooling.Instance.enemies.Length; i++)
-        {
-            EnemyPooling.Instance.enemies[i].GetComponent<EnemyAI>().enabled = false;
-            EnemyPooling.Instance.enemies[i].GetComponent<Animator>().enabled = false;
-            EnemyPooling.Instance.enemies[i].GetComponent<NavMeshAgent>().enabled = false;
-        }
     }
 
-    private void DisableInstances()
+    private void DisableInstances(bool t = true)
     {
-        PlayerController.Instance.enabled = false;
-        CharController.Instance.Cur.enabled = false;
-        CharController.Instance.enabled = false;
-        WeaponManager.Instance.enabled = false;
-        EnemyPooling.Instance.enabled = false;
+        PlayerController.Instance.enabled = t;
+        CharController.Instance.Cur.enabled = t;
+        CharController.Instance.enabled = t;
+        WeaponManager.Instance.enabled = t;
+        EnemyPooling.Instance.enabled = t;
     }
     public void RestartGame()
     {
