@@ -50,8 +50,8 @@ public class GunController : MonoBehaviour
     public AudioClip[] ShootingSounds;
     public AudioClip ReloadSound;
     public AudioClip DrySound;
-    public AudioSource audio;
-    //Extra
+    public AudioSource aud;
+    //Extra 
     private Camera mainC;
     public Animator anim;
     private int bulletsShot;
@@ -65,7 +65,7 @@ public class GunController : MonoBehaviour
     }
     private void OnEnable()
     {
-        audio.Stop();
+        aud.Stop();
         reloading = false;
         Char.UpdateCurrentWeapon(this);// tell the charcontroller that this is the new gun, to update for sprinting
         if (initialized)
@@ -92,7 +92,7 @@ public class GunController : MonoBehaviour
             anim.SetTrigger("Shooting");
         }
         else if (Input.GetButtonDown("Fire1") && clipAmount == 0 && currentClip == 0)
-            audio.PlayOneShot(DrySound);
+            aud.PlayOneShot(DrySound);
         // If the gun has no ammo left in the clip, no clips remaining, and can't reload then play the dry sound 
     }
 
@@ -145,8 +145,8 @@ public class GunController : MonoBehaviour
     {
         // Choose a random audio clip from the audio array and play it 
         int r = Random.Range(0, ShootingSounds.Length);
-        audio.clip = ShootingSounds[r];
-        audio.Play();
+        aud.clip = ShootingSounds[r];
+        aud.Play();
 
     }
 
@@ -155,7 +155,7 @@ public class GunController : MonoBehaviour
         reloading = true;
         anim.SetTrigger("Reloading");  // Play thee reloading animation
         // play the sound and delay for the reload speed take the animation transition delay, then reload and set the clip size again
-        audio.PlayOneShot(ReloadSound);
+        aud.PlayOneShot(ReloadSound);
         yield return new WaitForSeconds(ReloadSpeed - 0.25f);// The reload anim has a .25f transition delay, alows player to shoot when anim just finishes, instead of waiting
         reloading = false;
         // Take away ammo and set the clip back to how many bullets it's supposed to have 

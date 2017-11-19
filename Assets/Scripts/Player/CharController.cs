@@ -22,7 +22,6 @@ public class CharController : MonoBehaviour
     public float mouseSensitivity = 5.0f;
 
     //Forces 
-    private Rigidbody rb;
     private float moveSpeed = 3.0f;
     //private float jumpSpeed = 2f;
 
@@ -57,7 +56,7 @@ public class CharController : MonoBehaviour
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
+
         instance = this;
         cam = transform.GetChild(0).gameObject;
         camRot = cam.transform.localRotation;

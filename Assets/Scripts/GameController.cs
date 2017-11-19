@@ -131,6 +131,7 @@ public class GameController : MonoBehaviour
             paused = !paused;
         } else
         {
+            SoundHandler.Instance.Running = false;
             PauseMenu.SetTrigger("FlyOut");
             paused = !paused;
             EndGame(false, true);

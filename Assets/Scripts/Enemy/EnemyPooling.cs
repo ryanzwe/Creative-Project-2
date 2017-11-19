@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyPooling : MonoBehaviour
 {
-    public GameObject Zombie;
+    public GameObject[] Zombies;
     public float BaseZombiesPerMinute = 45;
     public int EnemyAmount;
     public int ZombiesCreated = 0;
@@ -34,7 +34,13 @@ public class EnemyPooling : MonoBehaviour
         enemies = new GameObject[EnemyAmount];
         for (int i = 0; i < EnemyAmount; i++)
         {
-            GameObject gb = Instantiate(Zombie);
+            // Grabbing a random zombie from the zombies array 
+            GameObject gb = Instantiate(Zombies[Random.Range(0, Zombies.Length)]);
+            // Adding extra scale onto the transform to add variation onto their original sizing
+            float randHeightAdditional = Random.Range(0f, 0.15f);
+            Transform zombT = gb.transform;
+            gb.transform.localScale = new Vector3(zombT.localScale.x + randHeightAdditional, zombT.localScale.y + randHeightAdditional, zombT.localScale.z + randHeightAdditional);
+            // setting them active and placing them under the parent, as well as adding them to the array then calling the create method on them
             gb.SetActive(false);
             gb.transform.parent = this.transform;
             enemies[i] = gb;

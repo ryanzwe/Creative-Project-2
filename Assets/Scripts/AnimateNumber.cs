@@ -8,14 +8,12 @@ class AnimateNumber : MonoBehaviour
     private Text animatedText;
     private float StartingNum;
     private float EndingNum;
-    private float LerpTime;
     private float ChangeAMT;
     public void Setup(ref Text animatedText, float StartingNum, float EndingNum, float LerpTime)
     {
         this.animatedText = animatedText;
         this.StartingNum = StartingNum;
         this.EndingNum = EndingNum;
-        this.LerpTime = LerpTime;
         ChangeAMT = (EndingNum - StartingNum) / LerpTime;
         StartCoroutine(AnimateNum());
     }

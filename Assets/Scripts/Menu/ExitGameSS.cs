@@ -1,18 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class ExitGameSS : StateMachineBehaviour
 {
-
+    public string Level;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        #if UNITY_EDITOR
-             UnityEditor.EditorApplication.isPlaying = false;
-        #else
+    #if UNITY_EDITOR
+        if (Level.ToLower() == "quit")
+            UnityEditor.EditorApplication.isPlaying = false;
+        else
+            SceneManager.LoadScene(Level);
+    #else
+        if (Level.ToLower() == "quit")
              Application.Quit();
-        #endif
+          else
+            SceneManager.LoadScene(Level);
+    #endif
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

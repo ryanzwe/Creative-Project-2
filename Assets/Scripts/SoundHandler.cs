@@ -11,7 +11,7 @@ public class SoundHandler : MonoBehaviour
     {
         get { return instance; }
     }
-
+    public bool Running = false;
     private AudioSource audio;
     public AudioClip[] SoundClips;
     public AudioClip[] BackgroundMusic;
@@ -40,9 +40,12 @@ public class SoundHandler : MonoBehaviour
     }
     private void Update()
     {
-        EffectsSliderText.text = EffectsSlider.value.ToString("n0");
-        MusicSliderText.text = MusicSlider.value.ToString("n0");
-        SensitivityText.text = Sensitivityslider.value.ToString("n0");
+        if(Running)
+        {
+            EffectsSliderText.text = EffectsSlider.value.ToString("n0");
+            MusicSliderText.text = MusicSlider.value.ToString("n0");
+            SensitivityText.text = Sensitivityslider.value.ToString("n0");
+        }
     }
 
     public void PlaySound(Sounds sound)
@@ -73,6 +76,7 @@ public class SoundHandler : MonoBehaviour
         EffectsSlider.value = EffectsVol;
         MusicSlider.value = MusicVol;
         Sensitivityslider.value = PlayerPrefs.GetFloat("MouseSensitivity", 5);
+        Running = true;
     }
     private void ApplyVolume()
     {
