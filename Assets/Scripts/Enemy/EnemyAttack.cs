@@ -9,23 +9,14 @@ using Object = System.Object;
 public class EnemyAttack : State<EnemyAI>
 {
     private static EnemyAttack instance;
-    private GameObject ownerGB;
-    public GameObject target;
-    private NavMeshAgent navAgent;
-    private EnemyAttackTimer enemyTimers;
-    public float attackRange = 2.5f;
-    public float AttackDamage = 20f;
-    private bool preparingAttack;
+
+
     private EnemyAI Owner;
 
-    public EnemyAttack(GameObject ownerGB, NavMeshAgent navAgent, EnemyAttackTimer enemyTimers, GameObject target)// When constructing this state, set the instance to this if there has already been one created
+    public EnemyAttack()// When constructing this state, set the instance to this if there has already been one created
     {
         if (instance != null) return;
-        this.ownerGB = ownerGB;
-        this.navAgent = navAgent;
-       // instance = this;
-        this.enemyTimers = enemyTimers;
-        this.target = target;
+        instance = this;
     }
 
     //public static EnemyAttack Instance
@@ -55,22 +46,21 @@ public class EnemyAttack : State<EnemyAI>
     public override void UpdateState(EnemyAI Owner)
     {
 
-        float dist = (target.transform.position - navAgent.transform.position).magnitude;
-        if (dist < attackRange)
+        float dist = (Owner.Target.transform.position - Owner.agent.transform.position).magnitude;
+        if (dist < Owner.attackRange)
         {
-            if (!enemyTimers.isActiveAndEnabled)
-                enemyTimers.enabled = true;
-            if (enemyTimers.CanAttack)
+            if (!Owner.enemyTimers.isActiveAndEnabled)
+                Owner.enemyTimers.enabled = true;
+            if (Owner.enemyTimers.CanAttack)
             {
                 Attack();
-                enemyTimers.enabled = false;
-
+                Owner.enemyTimers.enabled = false;
             }
         }
-        if (dist > attackRange)
+        if (dist > Owner.attackRange)
             {
-                preparingAttack = false;
-                navAgent.isStopped = false;
+                Owner.preparingAttack = false;
+                Owner.agent.isStopped = false;
                 Owner.stateMachine.ChangeState(Owner.findTarget);
             }
     }
@@ -86,7 +76,7 @@ public class EnemyAttack : State<EnemyAI>
     private void Attack()
     {
      //   Debug.Log("Hit!");
-        PlayerController.Instance.Health -= AttackDamage;
+        PlayerController.Instance.Health -= Owner.AttackDamage;
         Owner.GetComponent<Animator>().SetTrigger("Attack");
         
     }
