@@ -50,7 +50,7 @@ public class EnemyAI : MonoBehaviour
             GetComponent<NavMeshAgent>().enabled = false;
             if (Random.value > 0.5f)
             {
-                GameObject gb = Instantiate(GameController.Instance.Log, transform.position + (Vector3.up * 0.8f), Quaternion.identity);
+                Instantiate(GameController.Instance.Log, transform.position + (Vector3.up * 0.8f), Quaternion.identity);
                // gb.GetComponent<Rigidbody>().AddForce(Vector3.up * 15f);
             }
             GameController.Instance.Score += ScoreValue;

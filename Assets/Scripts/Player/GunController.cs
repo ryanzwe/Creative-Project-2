@@ -63,6 +63,10 @@ public class GunController : MonoBehaviour
         CurrentClip = ClipSize;
         mainC = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
+    private void OnDisable()
+    {
+        aud.Stop();
+    }
     private void OnEnable()
     {
         aud.Stop();

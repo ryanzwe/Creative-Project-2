@@ -34,7 +34,7 @@ public class GameController : MonoBehaviour
             }
         }
     }
-    private int logsRemaining = 20; // Logs required to finish the building 
+    private int logsRemaining = 1; // Logs required to finish the building 
     public int LogsRemaining
     {
         get { return logsRemaining; }
@@ -111,27 +111,29 @@ public class GameController : MonoBehaviour
         {
             EndGame(true);
         }
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (paused)
             {
                 PanelHandle(false);
+                SoundHandler.Instance.SaveSounds();
                 return;
             }
             PanelHandle(true);
         }
+        if (Input.GetKeyDown(KeyCode.G))
+            LogsRemaining = 1;
     }
     public void PanelHandle(bool TorF)
     {
         if(TorF)
         {
-            SoundHandler.Instance.InitSliders();
+            //SoundHandler.Instance.InitSliders();
             PauseMenu.SetTrigger("FlyIn");
             EndGame(false, false);
             paused = !paused;
         } else
         {
-            SoundHandler.Instance.Running = false;
             PauseMenu.SetTrigger("FlyOut");
             paused = !paused;
             EndGame(false, true);
@@ -207,6 +209,7 @@ public class GameController : MonoBehaviour
         CharController.Instance.enabled = t;
         WeaponManager.Instance.enabled = t;
         EnemyPooling.Instance.enabled = t;
+        RandomisedEntitySpawner.Instance.enabled = t;
     }
     public void RestartGame()
     {
@@ -214,6 +217,7 @@ public class GameController : MonoBehaviour
         Destroy(CharController.Instance);
         Destroy(WeaponManager.Instance);
         Destroy(EnemyPooling.Instance);
+        Destroy(RandomisedEntitySpawner.Instance);
         Destroy(Instance);
         SceneManager.LoadScene("MainMenuu");
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
@@ -11,8 +12,7 @@ public class SoundHandler : MonoBehaviour
     {
         get { return instance; }
     }
-    public bool Running = false;
-    private AudioSource audio;
+    private AudioSource aud;
     public AudioClip[] SoundClips;
     public AudioClip[] BackgroundMusic;
     public AudioSource[] EffectPlayers;
@@ -33,34 +33,38 @@ public class SoundHandler : MonoBehaviour
         Weather_Thunder = 3,
         Objective_Complete = 4,
     }
-    private void Start()
+    private IEnumerator Start()
     {
         instance = this;
-        audio = GetComponent<AudioSource>();
+        aud = GetComponent<AudioSource>();
+        MusicSlider.onValueChanged.AddListener((float value) => UpdateSliderNumberText(ref MusicSliderText, value, 0));
+        EffectsSlider.onValueChanged.AddListener((float value) => UpdateSliderNumberText(ref EffectsSliderText, value, 1));
+        Sensitivityslider.onValueChanged.AddListener((float value) => UpdateSliderNumberText(ref SensitivityText, value, 2));
+        // Wait for references to be set, then initiate the sliders, which also sets the volumes as ^ events are being called
+        yield return new WaitForSeconds(0.5f);
+        InitSliders();
     }
-    private void Update()
+    private void UpdateSliderNumberText(ref Text t, float value, sbyte EffectOrBG)
     {
-        if(Running)
-        {
-            EffectsSliderText.text = EffectsSlider.value.ToString("n0");
-            MusicSliderText.text = MusicSlider.value.ToString("n0");
-            SensitivityText.text = Sensitivityslider.value.ToString("n0");
-        }
+        t.text = value.ToString("n0");
+        if (EffectOrBG == 0)
+             MusicVol = MusicSlider.value;
+        if (EffectOrBG == 1)
+            EffectsVol = EffectsSlider.value;
+        if (EffectOrBG == 2)
+            CharController.Instance.mouseSensitivity = Sensitivityslider.value;
+        ApplyVolume(EffectOrBG);
+    }
+    public void SaveSounds()
+    {
+        PlayerPrefs.SetFloat("MouseSensitivity", Sensitivityslider.value);
+        SoundSaver.Save(this);
     }
 
     public void PlaySound(Sounds sound)
     {
-        audio.clip = SoundClips[(int)sound];
-        audio.Play();
-    }
-    public void ApplySound()
-    {
-        EffectsVol = EffectsSlider.value;
-        MusicVol = MusicSlider.value;
-        ApplyVolume();
-        PlayerPrefs.SetFloat("MouseSensitivity", Sensitivityslider.value);
-        CharController.Instance.mouseSensitivity = Sensitivityslider.value;
-        SoundSaver.Save(this);
+        aud.clip = SoundClips[(int)sound];
+        aud.Play();
     }
     public void InitSliders()
     {
@@ -71,22 +75,27 @@ public class SoundHandler : MonoBehaviour
             EffectsVol = volumes.EffectsVol;
             MusicVol = volumes.MusicVol;
         }
-        
+
         // Setting the sliders volumes
         EffectsSlider.value = EffectsVol;
         MusicSlider.value = MusicVol;
         Sensitivityslider.value = PlayerPrefs.GetFloat("MouseSensitivity", 5);
-        Running = true;
     }
-    private void ApplyVolume()
+    private void ApplyVolume(sbyte EffectOrBG)
     {
-        foreach (AudioSource aud in EffectPlayers)
+         if (EffectOrBG == 0)
         {
-            aud.volume = EffectsVol / 100;
+            foreach (AudioSource aud in BackgroundPlayers)
+            {
+                aud.volume = MusicVol / 100;
+            }
         }
-        foreach (AudioSource aud in BackgroundPlayers)
+        else if (EffectOrBG == 1)
         {
-            aud.volume = MusicVol / 100;
+            foreach (AudioSource aud in EffectPlayers)
+            {
+                aud.volume = EffectsVol / 100;
+            }
         }
     }
 }

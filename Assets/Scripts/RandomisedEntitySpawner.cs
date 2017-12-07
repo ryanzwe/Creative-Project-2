@@ -14,9 +14,14 @@ public class RandomisedEntitySpawner : MonoBehaviour
     private Collider levelRenderer;
     private Bounds levelBounds;
     private Vector3 levelSizing;
+    private GameObject EntityHolder;
 
+    private static RandomisedEntitySpawner instance;
+    public static RandomisedEntitySpawner Instance => instance;
     private void Start()
     {
+        instance = this;
+        EntityHolder = new GameObject("Entity Holder");
         CurrentEnties = new List<GameObject>(MaxSpawns);
         StartCoroutine(EntitySpawning());
         SpawnsPerSecond /= 60;
@@ -62,7 +67,9 @@ public class RandomisedEntitySpawner : MonoBehaviour
                 {
                     if (hit.collider.CompareTag("Terrain"))
                     {
-                        CurrentEnties.Add(Instantiate(ent, hit.point, Quaternion.Euler(hit.normal.x, hit.normal.y + 1.5f, hit.normal.z)));
+                        GameObject gb  = Instantiate(ent, hit.point, Quaternion.Euler(hit.normal.x, hit.normal.y + 1.5f, hit.normal.z));
+                        CurrentEnties.Add(gb);
+                        gb.transform.parent = EntityHolder.transform;
                     }
                 }
             }

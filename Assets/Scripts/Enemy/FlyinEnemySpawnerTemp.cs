@@ -19,7 +19,8 @@ public class FlyinEnemySpawnerTemp : MonoBehaviour
         while (AmountToSpawn > spawnedAmt)
         {
             yield return new WaitForSeconds(1f);
-            Instantiate(FlyingZombie);
+            GameObject gb = Instantiate(FlyingZombie);
+            gb.transform.parent = FlyingZombieParent.transform;
             spawnedAmt++;
         }
     }
