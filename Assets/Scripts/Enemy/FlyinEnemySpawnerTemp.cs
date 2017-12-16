@@ -6,23 +6,36 @@ public class FlyinEnemySpawnerTemp : MonoBehaviour
 {
 
     public GameObject FlyingZombie;
-    private GameObject FlyingZombieParent;
-    public int AmountToSpawn;
-    private int spawnedAmt;
+    public GameObject PowerupPrefab;
+    private MeshRenderer meshR;
+    private BoxCollider col;
+    public int ScoreValue = 150;
+
     public void Start()
     {
-        FlyingZombieParent = new GameObject("Flying  Zombies Holder");
-        StartCoroutine(SpawnZombies());
+        meshR = GetComponent<MeshRenderer>();
+        col = GetComponent<BoxCollider>();
+        GameController.Instance.OnMilestoneHit += SpawnFlying;
     }
-    IEnumerator SpawnZombies()
+    public void ToggleZombie(bool show )
     {
-        while (AmountToSpawn > spawnedAmt)
+        if (meshR != null && col != null)
         {
-            yield return new WaitForSeconds(1f);
-            GameObject gb = Instantiate(FlyingZombie);
-            gb.transform.parent = FlyingZombieParent.transform;
-            spawnedAmt++;
+            meshR.enabled = show;
+            col.enabled = show;
+            if(show == false)
+            {
+                // This means that the zombie has been killed
+                // Spawn powerup
+                GameController.Instance.Score += ScoreValue;
+                ToggleZombie(false);
+                Debug.Log("Killed Zombie");
+            }
         }
     }
-
+    private void SpawnFlying()
+    {
+        Instantiate(FlyingZombie);
+        Debug.Log("Memes");
+    }
 }

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.Remoting.Messaging;
+﻿
 using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
@@ -10,6 +8,7 @@ public class WeaponManager : MonoBehaviour
     private static WeaponManager instance;
     public bool[] UnlockedWeps;
     public UnityEngine.UI.Image[] GunPanelUI;
+    public GunController[] Guns;
 
     public static WeaponManager Instance
     {
@@ -24,6 +23,11 @@ public class WeaponManager : MonoBehaviour
         {// Pistol  AR   Shotty 
             true, false, false
         };
+        Guns = new GunController[transform.childCount];
+        for (int i = 0; i < Guns.Length; i++)
+        {
+            Guns[i] = transform.GetChild(i).GetComponent<GunController>();
+        }
     }
     private void Update()
     {
@@ -83,6 +87,5 @@ public class WeaponManager : MonoBehaviour
     public void UpdateUnlockedUI(UnityEngine.UI.Image UpdateImg)
     {
         UpdateImg.color = new Color(255,255,255,255);
-        Debug.Log("SAD");
     }
 }

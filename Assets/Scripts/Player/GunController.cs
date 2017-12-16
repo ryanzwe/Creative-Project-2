@@ -23,7 +23,9 @@ public class GunController : MonoBehaviour
             GameController.Instance.ui.AmmoCount.text = currentClip.ToString();
         }
     }
-
+    /*
+     * bug: On picking up a new weapon, switching to it, shooting, then switching back the pistols version of this script sometimes disables and can't be reused 
+     * */
     public int clipAmount = 3;// how many clips to have  -- CLIP QTY ZONE
 
     public int ClipAmount
@@ -129,6 +131,10 @@ public class GunController : MonoBehaviour
                 else // If the object being shot doesn't have a texture assigned to it (meaning it's a flat material)
                     temp.GetComponent<Renderer>().material = hit.transform.GetComponent<Renderer>().material;
             }
+            else if (hit.transform.CompareTag("FlyingZombie"))
+            {
+                GetComponent<FlyinEnemySpawnerTemp>().ToggleZombie(false);
+            }
             else
             {// If an enemy was shot, make them take damage and drop blood 
                 hit.transform.GetComponent<EnemyAI>().Damage(Damage);
@@ -165,8 +171,5 @@ public class GunController : MonoBehaviour
         // Take away ammo and set the clip back to how many bullets it's supposed to have 
         ClipAmount--;
         CurrentClip = ClipSize;
-
     }
-
-
 }

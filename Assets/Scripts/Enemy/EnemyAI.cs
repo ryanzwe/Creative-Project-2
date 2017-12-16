@@ -6,7 +6,8 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
-    public int health = 100;
+    public int health;
+    public int MaxHealth = 100;
     public int ScoreValue = 50;
     public StateMachine<EnemyAI> stateMachine { get; set; }
    // public string CurrentStateString = string.Empty;
@@ -25,6 +26,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Start()
     {
+        health = MaxHealth;
         Target = GameObject.Find("Player");
         agent = transform.GetComponent<NavMeshAgent>();
         enemyTimers = transform.GetComponent<EnemyAttackTimer>();

@@ -63,6 +63,8 @@ public class GameController : MonoBehaviour
     public float GameTime;
     public delegate void SecondEvent();
     public event SecondEvent OnSecondChange;
+    public delegate void ScoreMilestone();
+    public event ScoreMilestone OnMilestoneHit;
     private int score;
 
     public int Score
@@ -70,10 +72,16 @@ public class GameController : MonoBehaviour
         get { return score; }
         set
         {
-            score = value;
+            score = value  * ScoreMultiplier;
             ui.Score.text = "Score: " + Score.ToString();
+            if(score % 1000 > 1985   || score % 1000 == 0)
+            {
+                OnMilestoneHit?.Invoke();
+            }
+            Debug.Log("S: " + score % 150);
         }
     }
+    public int ScoreMultiplier = 1;
 
     public GameObject[] Lambo;
 
@@ -102,10 +110,8 @@ public class GameController : MonoBehaviour
             GameTime = Time.time;
             totalSeconds++;
             if (totalSeconds % 5 == 0) EnemyPooling.Instance.BaseZombiesPerMinute++;
-            if (OnSecondChange != null)
-            {
-                OnSecondChange();
-            }
+            // If what's on the left (Onsecondchange) isn't null, then invoke the event
+            OnSecondChange?.Invoke();
         }
         if(Input.GetKeyDown(KeyCode.F))
         {
@@ -180,6 +186,10 @@ public class GameController : MonoBehaviour
         // Preventing movement and enabling cursour, also disable enemies from moving making the game appear paused 
         CharController.ToggleCursour(EnableAI);
         DisableInstances(EnableAI);
+        ToggleAI(EnableAI);
+    }
+    public static void ToggleAI(bool EnableAI)
+    {
         for (int i = 0; i < EnemyPooling.Instance.enemies.Length; i++)
         {
             EnemyPooling.Instance.enemies[i].GetComponent<EnemyAI>().enabled = EnableAI;
@@ -210,6 +220,7 @@ public class GameController : MonoBehaviour
         WeaponManager.Instance.enabled = t;
         EnemyPooling.Instance.enabled = t;
         RandomisedEntitySpawner.Instance.enabled = t;
+        PowerupSystem.Instance.enabled = t;
     }
     public void RestartGame()
     {
@@ -218,6 +229,7 @@ public class GameController : MonoBehaviour
         Destroy(WeaponManager.Instance);
         Destroy(EnemyPooling.Instance);
         Destroy(RandomisedEntitySpawner.Instance);
+        Destroy(PowerupSystem.Instance);
         Destroy(Instance);
         SceneManager.LoadScene("MainMenuu");
     }

@@ -159,7 +159,7 @@ public class CharController : MonoBehaviour
                 }
                 else if (hit.collider.CompareTag("ShotgunPickup"))
                 { // If the shotgun has already been picked up, grab ammo instead 
-                    Debug.Log("S");
+
                     if (WeaponManager.Instance.UnlockedWeps[2] == true)
                     {
                         WeaponManager.Instance.transform.GetChild(2).GetComponent<GunController>().ClipAmount++;

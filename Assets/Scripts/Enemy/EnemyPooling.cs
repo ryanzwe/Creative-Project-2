@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class EnemyPooling : MonoBehaviour
 {
     public GameObject[] Zombies;
+    public EnemyAI[] EnemyBrains;
     public float BaseZombiesPerMinute = 45;
     public int EnemyAmount;
     public int ZombiesCreated = 0;
@@ -25,13 +26,15 @@ public class EnemyPooling : MonoBehaviour
     void Start()
     {
         instance = this;
+
         Transform spawnG = GameObject.Find("EnemySpawns").transform;
         SpawnPositions = new Vector3[spawnG.childCount];
+        enemies = new GameObject[EnemyAmount];
+        EnemyBrains = new EnemyAI[EnemyAmount];
         for (int i = 0; i < spawnG.childCount; i++)
         {
             SpawnPositions[i] = spawnG.GetChild(i).transform.position;
         }
-        enemies = new GameObject[EnemyAmount];
         for (int i = 0; i < EnemyAmount; i++)
         {
             // Grabbing a random zombie from the zombies array 
@@ -44,6 +47,7 @@ public class EnemyPooling : MonoBehaviour
             gb.SetActive(false);
             gb.transform.parent = this.transform;
             enemies[i] = gb;
+            EnemyBrains[i] = gb.GetComponent<EnemyAI>();
             gb.name = "Zombie " + i;
             Create(SpawnPositions[i], Quaternion.identity);
         }
@@ -62,7 +66,7 @@ public class EnemyPooling : MonoBehaviour
                 enemies[i].SetActive(true);
                // enemies[i].transform.position = pos;
                 enemies[i].transform.rotation = rot;
-                enemies[i].GetComponent<EnemyController>().health = 100;
+                enemies[i].GetComponent<EnemyController>().health = EnemyBrains[i].MaxHealth;
                 return enemies[i]; // Exit the loops once this has been spawned
             }
         }

@@ -6,27 +6,31 @@ public class RandomisedEntitySpawner : MonoBehaviour
 {
     [Range(1, 100)]
     public int MaxSpawns;
-
+    [Range(0.5f,0.99f)]
+    public float LevelDampingRange;
     public float SpawnsPerSecond = 1;
     public List<GameObject> CurrentEnties;
     public GameObject[] Entities;
     public GameObject LevelTerrain;
     private Collider levelRenderer;
-    private Bounds levelBounds;
+    public Bounds LevelBounds;
     private Vector3 levelSizing;
     private GameObject EntityHolder;
 
     private static RandomisedEntitySpawner instance;
     public static RandomisedEntitySpawner Instance => instance;
-    private void Start()
+    private void Awake()
     {
         instance = this;
+    }
+    private void Start()
+    {
         EntityHolder = new GameObject("Entity Holder");
         CurrentEnties = new List<GameObject>(MaxSpawns);
         StartCoroutine(EntitySpawning());
         SpawnsPerSecond /= 60;
         levelRenderer = LevelTerrain.GetComponent<Collider>();
-        levelBounds = levelRenderer.bounds;
+        LevelBounds = levelRenderer.bounds;
         
         //int a = 1 << 5 | 1 << 4;
 
@@ -52,15 +56,16 @@ public class RandomisedEntitySpawner : MonoBehaviour
                 int rand = Random.Range(0, Entities.Length);
                 levelSizing = new Vector3
                 (// Divide by two as it spawns from the middle, so 0 + levelbounds.size would be twice the size itshould be
-                    Random.Range(-levelBounds.size.x /2 , levelBounds.size.x /2),
-                    levelBounds.size.y + 15f,
-                    Random.Range(-levelBounds.size.z /2, levelBounds.size.z /2)
-                );
+                    Random.Range(-LevelBounds.size.x /2 , LevelBounds.size.x /2),
+                    LevelBounds.size.y + 15f,
+                    Random.Range(-LevelBounds.size.z /2, LevelBounds.size.z /2)
+                ) * LevelDampingRange;
                 GameObject ent = Entities[rand];
                 // Setting a random point for the raycast dependant on the levels size
                 Ray ray = new Ray(levelSizing, Vector3.down);
                 RaycastHit hit;
                 Debug.DrawRay(levelSizing, Vector3.down * 50000, Color.green, 15);
+                // Select layer 10, then inverse the bits so all the other layers are selected instead
                 int mask = 1 << 10;
                 mask = ~mask;
                 if (Physics.Raycast(ray, out hit, Mathf.Infinity, mask))
