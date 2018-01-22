@@ -4,14 +4,12 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class SoundHandler : MonoBehaviour
 {
     private static SoundHandler instance;
-    public static SoundHandler Instance
-    {
-        get { return instance; }
-    }
+    public static SoundHandler Instance => instance;
     private AudioSource aud;
     public AudioClip[] SoundClips;
     public AudioClip[] BackgroundMusic;
@@ -25,6 +23,7 @@ public class SoundHandler : MonoBehaviour
     public Text EffectsSliderText;
     public Text MusicSliderText;
     public Text SensitivityText;
+
     public enum Sounds
     {
         Pickup_Gun = 0,
@@ -32,7 +31,10 @@ public class SoundHandler : MonoBehaviour
         Weather_Rain = 2,
         Weather_Thunder = 3,
         Objective_Complete = 4,
-    }
+        FruitEat_1 = 5,
+        FruitEat_2 = 6
+    };
+
     private IEnumerator Start()
     {
         instance = this;
@@ -61,6 +63,13 @@ public class SoundHandler : MonoBehaviour
         SoundSaver.Save(this);
     }
 
+    public void PlaySoundSetRandom(Sounds[] sounds)
+    {
+        //Grab an audio clip from the SoundClips array. The index is given by the sounds array which will return a value between its start and its end
+        AudioClip clip = SoundClips[Random.Range((int)sounds[0], (int)sounds[sounds.Length - 1] + 1)];// -1 as .Length returns starting from 1 instead of 0, then adding +1 to compensate
+        aud.clip = clip;
+        aud.Play();
+    }
     public void PlaySound(Sounds sound)
     {
         aud.clip = SoundClips[(int)sound];
@@ -99,6 +108,7 @@ public class SoundHandler : MonoBehaviour
         }
     }
 }
+
 public class SoundSaver
 {
     static string FileName = "SoundSettings.Varyaty";

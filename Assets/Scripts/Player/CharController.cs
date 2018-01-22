@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using NUnit.Framework.Constraints;
 using UnityEngine;
 using UnityEngineInternal.Input;
 /// <summary>
@@ -45,13 +46,8 @@ public class CharController : MonoBehaviour
         }
     }
 
-    private bool canShoot;
-
     private static CharController instance;
-    public static CharController Instance
-    {
-        get { return instance; }
-    }
+    public static CharController Instance => instance;
 
 
     private void Start()
@@ -81,8 +77,7 @@ public class CharController : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift) && GameController.Instance.CurrentLogCount < 2) sprinting = true;
         else sprinting = false;
         float sprintModifier = sprinting ? 2 : 1;
-        // Getting the position the frame prior to moving
-        Vector3 prePos = transform.position;
+
         verticalMovement = Input.GetAxis("Vertical") * moveSpeed * sprintModifier * Time.deltaTime;
         horizontalMovement = Input.GetAxis("Horizontal") * moveSpeed * sprintModifier * Time.deltaTime;
         transform.Translate(new Vector3(horizontalMovement, 0, verticalMovement));
@@ -175,6 +170,21 @@ public class CharController : MonoBehaviour
                     SoundHandler.Instance.PlaySound(SoundHandler.Sounds.Pickup_Extra);
                     Destroy(hit.collider.gameObject);
                 }
+                else if (hit.collider.CompareTag("FruitBasket"))
+                {
+                    // todo: Display message saying already full health
+                    if (PlayerController.Instance.Health == 0)
+                        return;
+                    PlayerController.Instance.Health += 55;
+                    SoundHandler.Sounds[] snds =
+                    {
+                        SoundHandler.Sounds.FruitEat_1,
+                        SoundHandler.Sounds.FruitEat_2
+                    };
+                    SoundHandler.Instance.PlaySoundSetRandom(snds);
+                    //todo: Object pool these as well as the logs
+                    Destroy(hit.collider.gameObject);
+                }
             }
         }
     }
@@ -207,11 +217,6 @@ public class CharController : MonoBehaviour
         q.x = Mathf.Tan(0.5f * Mathf.Deg2Rad * angleX);
 
         return q;
-    }
-
-    bool Grounded()
-    {
-        return false;
     }
 
 

@@ -4,17 +4,16 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private static PlayerController instance;
-    public static PlayerController Instance
-    {
-        get { return instance; }
-    }
-    public float health = 100f;
+    public static PlayerController Instance => instance;
+    private float health = 100f;
     public float Health
     {
         get { return health; }
         set
         {
             health = value;
+            Debug.Log(value);
+            if (value > 100) health = 100;
             if (health <= 0) GameController.Instance.EndGame(true);
         }
     }

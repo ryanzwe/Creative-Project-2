@@ -73,10 +73,11 @@ public class GameController : MonoBehaviour
         set
         {
             score = value  * ScoreMultiplier;
-            ui.Score.text = "Score: " + Score.ToString();
+            ui.Score.text = "Score: " + Score;
             if(score % 1000 > 1985   || score % 1000 == 0)
             {
                 OnMilestoneHit?.Invoke();
+                Debug.Log("OnMileStoneHit() Invoked");
             }
             Debug.Log("S: " + score % 150);
         }

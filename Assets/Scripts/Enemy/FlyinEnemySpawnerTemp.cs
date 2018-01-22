@@ -26,7 +26,8 @@ public class FlyinEnemySpawnerTemp : MonoBehaviour
             if(show == false)
             {
                 // This means that the zombie has been killed
-                // Spawn powerup
+                // Pool these
+                Instantiate(PowerupPrefab);
                 GameController.Instance.Score += ScoreValue;
                 ToggleZombie(false);
                 Debug.Log("Killed Zombie");
@@ -35,7 +36,7 @@ public class FlyinEnemySpawnerTemp : MonoBehaviour
     }
     private void SpawnFlying()
     {
-        Instantiate(FlyingZombie);
+        ToggleZombie(true);
         Debug.Log("Memes");
     }
 }

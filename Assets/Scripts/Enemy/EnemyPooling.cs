@@ -17,10 +17,7 @@ public class EnemyPooling : MonoBehaviour
 
     private static EnemyPooling instance;
 
-    public static EnemyPooling Instance
-    {
-        get { return instance; }
-    }
+    public static EnemyPooling Instance => instance;
 
     // Use this for initialization
     void Start()
@@ -66,7 +63,7 @@ public class EnemyPooling : MonoBehaviour
                 enemies[i].SetActive(true);
                // enemies[i].transform.position = pos;
                 enemies[i].transform.rotation = rot;
-                enemies[i].GetComponent<EnemyController>().health = EnemyBrains[i].MaxHealth;
+                EnemyBrains[i].health = EnemyBrains[i].MaxHealth;
                 return enemies[i]; // Exit the loops once this has been spawned
             }
         }

@@ -264,9 +264,9 @@ namespace EastshadeStudio
         static void UpdateStamped()
         {
 
-            float scroll = (Event.current.type == EventType.scrollWheel) ? Event.current.delta.y * 4f : 0f;
+            float scroll = (Event.current.type == EventType.ScrollWheel) ? Event.current.delta.y * 4f : 0f;
 
-            if (Event.current.type == EventType.scrollWheel)
+            if (Event.current.type == EventType.ScrollWheel)
             {
                 Event.current.Use();
             }
